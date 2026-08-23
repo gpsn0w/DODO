@@ -163,19 +163,21 @@
 		}
 	}
 
-	/* --- Лента за прогрес най-горе --- */
+	/* --- Лента за прогрес + сгъстяване на HUD лентата при скрол --- */
 	var progress = document.getElementById("scrollProgress");
-	if (progress) {
-		var updateProgress = function () {
-			var h = document.documentElement;
+	var hudBar = document.querySelector(".hud-bar");
+	var onScroll = function () {
+		var h = document.documentElement;
+		var top = (h.scrollTop || document.body.scrollTop || 0);
+		if (progress) {
 			var max = (h.scrollHeight - h.clientHeight) || 1;
-			var p = (h.scrollTop || document.body.scrollTop || 0) / max;
-			progress.style.width = (Math.min(1, Math.max(0, p)) * 100) + "%";
-		};
-		window.addEventListener("scroll", updateProgress, { passive: true });
-		window.addEventListener("resize", updateProgress);
-		updateProgress();
-	}
+			progress.style.width = (Math.min(1, Math.max(0, top / max)) * 100) + "%";
+		}
+		if (hudBar) { hudBar.classList.toggle("scrolled", top > 20); }
+	};
+	window.addEventListener("scroll", onScroll, { passive: true });
+	window.addEventListener("resize", onScroll);
+	onScroll();
 
 	/* --- Лек 3D наклон на картите след мишката (само с истинска мишка) --- */
 	var finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;

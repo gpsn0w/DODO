@@ -167,6 +167,15 @@
     /* --------------------------- АНИМАЦИЯ В ПОКОЙ --------------------------- */
     let heartbeat = 0, pulse = 0, pulseStrength = 0.08, shockCycle = 0, running = true;
 
+    // Сферата леко се навежда към мишката (само с истинска мишка).
+    let targetRX = 0, targetRY = 0;
+    if (window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        window.addEventListener("pointermove", function (e) {
+            targetRY = ((e.clientX / window.innerWidth) - 0.5) * 0.6;
+            targetRX = ((e.clientY / window.innerHeight) - 0.5) * 0.6;
+        });
+    }
+
     function scanMatSet(value) { scanLine.material.opacity = value; }
 
     function frame() {
@@ -244,6 +253,10 @@
         camera.position.x = Math.sin(pulse * 0.07) * 0.35;
         camera.position.y = Math.cos(pulse * 0.05) * 0.2;
         camera.lookAt(0, 0, 0);
+
+        // Плавно навеждане на цялата сфера към мишката.
+        coreGroup.rotation.y += (targetRY - coreGroup.rotation.y) * 0.04;
+        coreGroup.rotation.x += (targetRX - coreGroup.rotation.x) * 0.04;
 
         renderer.render(scene, camera);
     }
