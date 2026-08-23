@@ -665,6 +665,32 @@ h1, h2, h3, h4 {
 }
 .tilt .ico, .tilt h3 { transform: translateZ(18px); }
 
+/* ============================== ДОПЪЛНИТЕЛНА ПОЛИРОВКА ============================== */
+/* Лентата горе се сгъстява леко при скрол */
+.hud-bar { transition: background .3s, box-shadow .3s; }
+.hud-bar.scrolled { background: rgba(3, 10, 7, 0.92); box-shadow: 0 8px 30px rgba(0,0,0,0.45); }
+
+/* Тикерът избледнява плавно в двата края */
+.ticker {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+/* Иконата на картата светва при посочване */
+.feature .ico { transition: box-shadow .25s, border-color .25s, transform .25s; }
+.feature:hover .ico {
+    border-color: var(--green);
+    box-shadow: 0 0 22px rgba(var(--rgb-green), 0.4);
+    transform: translateZ(24px) scale(1.06);
+}
+
+/* Главният бутон в hero леко пулсира, за да привлича погледа */
+.hero .cta .btn:not(.ghost) { animation: ctaPulse 2.6s ease-in-out 1.6s infinite; }
+@keyframes ctaPulse {
+    0%, 100% { box-shadow: 0 0 0 rgba(var(--rgb-green), 0); }
+    50%      { box-shadow: 0 0 26px rgba(var(--rgb-green), 0.45); }
+}
+
 /* ============================== АДАПТИВНО ============================== */
 @media (max-width: 900px) {
     .hero .wrap { grid-template-columns: 1fr; }
