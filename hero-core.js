@@ -165,7 +165,7 @@
     }
 
     /* --------------------------- АНИМАЦИЯ В ПОКОЙ --------------------------- */
-    let heartbeat = 0, pulse = 0, pulseStrength = 0.08, shockCycle = 0, running = true;
+    let heartbeat = 0, pulse = 0, pulseStrength = 0.08, shockCycle = 0, rafId = null;
 
     // Сферата леко се навежда към мишката (само с истинска мишка).
     let targetRX = 0, targetRY = 0;
@@ -179,8 +179,9 @@
     function scanMatSet(value) { scanLine.material.opacity = value; }
 
     function frame() {
-        if (!running) return;
-        requestAnimationFrame(frame);
+        // Един-единствен цикъл: пази се id-то и се презаписва всеки кадър,
+        // за да не могат два цикъла да текат наведнъж (оттам „ускоряването").
+        rafId = requestAnimationFrame(frame);
 
         heartbeat += 0.04;
         pulseStrength += (0.08 - pulseStrength) * 0.05;
@@ -262,8 +263,9 @@
     }
 
     window.dodoHeroCore = {
-        wake() { if (!running) { running = true; frame(); } },
-        sleep() { running = false; }
+        // Стартира само ако вече не върви цикъл; спира и зачиства кадъра.
+        wake() { if (rafId === null) { frame(); } },
+        sleep() { if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; } }
     };
     document.addEventListener("visibilitychange", () => {
         document.hidden ? window.dodoHeroCore.sleep() : window.dodoHeroCore.wake();
