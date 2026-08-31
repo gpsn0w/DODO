@@ -200,3 +200,96 @@
 		});
 	}
 })();
+
+/* Форма за сигнали → праща към моста (Cloudflare Worker), който създава
+   issue в GitHub. Хората пишат без акаунт; тайният ключ стои в моста. */
+(function () {
+	var form = document.getElementById("reportForm");
+	if (!form) return;
+	/* ⬇ СЛОЖИ ТУК адреса на Cloudflare Worker-а след deploy (виж issue-worker/README.md) ⬇ */
+	var ENDPOINT = "https://dodo-issue-bridge.ТВОЙ-АКАУНТ.workers.dev";
+	var btn = document.getElementById("reportSend");
+	var status = document.getElementById("reportStatus");
+	var sending = false;
+
+	function setStatus(text, kind) {
+		status.textContent = text || "";
+		status.className = "rf-status" + (kind ? " " + kind : "");
+	}
+	function succeed(res) {
+		var link = (res && res.url)
+			? '<p><a class="btn ghost" href="' + res.url + '" target="_blank" rel="noopener">▸ Виж сигнала №' + (res.number || "") + '</a></p>'
+			: "";
+		form.innerHTML = '<div class="rf-sent">' +
+			'<div class="big">✓</div>' +
+			'<h3>ПОЛУЧИХМЕ ГО</h3>' +
+			'<p>Благодарим! Четем всеки сигнал. Ако си оставил имейл, ще ти отговорим.</p>' +
+			link +
+			'</div>';
+	}
+
+	form.addEventListener("submit", function (e) {
+		e.preventDefault();
+		if (sending) return;
+
+		var honey = form.querySelector(".rf-honey");
+		if (honey && honey.value) { succeed(); return; }   /* бот — правим се, че сме приели */
+
+		var msg = form.querySelector('[name="Съобщение"]');
+		if (!msg || !msg.value.trim()) {
+			setStatus("Напиши няколко думи какво стана.", "err");
+			if (msg) msg.focus();
+			return;
+		}
+
+		var data = {};
+		new FormData(form).forEach(function (v, k) { data[k] = v; });
+
+		sending = true;
+		btn.disabled = true;
+		setStatus("Изпращам…", "");
+
+		fetch(ENDPOINT, {
+			method: "POST",
+			headers: { "Content-Type": "application/json", "Accept": "application/json" },
+			body: JSON.stringify(data)
+		}).then(function (r) { return r.json().catch(function () { return {}; }); })
+		  .then(function (res) {
+			if (res && (res.success === "true" || res.success === true)) {
+				succeed(res);
+			} else {
+				sending = false; btn.disabled = false;
+				setStatus("Нещо се обърка. Пробвай пак или ни пиши на имейла.", "err");
+			}
+		}).catch(function () {
+			sending = false; btn.disabled = false;
+			setStatus("Няма връзка. Провери интернета и пробвай пак.", "err");
+		});
+	});
+})();
+
+/* Урок: избор Mac/Windows. Разпознава системата и показва нейните стъпки. */
+(function () {
+	var tabs = Array.prototype.slice.call(document.querySelectorAll(".os-tab"));
+	var panels = Array.prototype.slice.call(document.querySelectorAll(".os-panel"));
+	if (!tabs.length) return;
+
+	function show(os) {
+		tabs.forEach(function (t) {
+			var on = t.getAttribute("data-os") === os;
+			t.classList.toggle("is-active", on);
+			t.setAttribute("aria-selected", on ? "true" : "false");
+		});
+		panels.forEach(function (p) {
+			p.classList.toggle("is-active", p.getAttribute("data-os") === os);
+		});
+	}
+
+	tabs.forEach(function (t) {
+		t.addEventListener("click", function () { show(t.getAttribute("data-os")); });
+	});
+
+	/* Авто-разпознаване: Windows → win, иначе Mac (по подразбиране). */
+	var ua = (navigator.userAgent || "") + " " + (navigator.platform || "");
+	if (/Win/i.test(ua)) show("win");
+})();
