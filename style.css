@@ -729,3 +729,124 @@ h1, h2, h3, h4 {
     .hero h1, .load-1, .load-3, .load-4, .load-core { opacity: 1 !important; }
     .tilt { transform: none !important; }
 }
+
+/* ── Форма за сигнали (Обратна връзка) ───────────────────────────── */
+.report-form { max-width: 720px; margin: 34px auto 0; display: flex; flex-direction: column; gap: 20px; }
+.rf-types { display: flex; gap: 10px; flex-wrap: wrap; }
+.rf-type { position: relative; cursor: pointer; }
+.rf-type input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.rf-type span {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 13px; letter-spacing: 1px;
+    color: var(--mint); padding: 10px 16px;
+    border: 1px solid rgba(var(--rgb-green), 0.3);
+    background: rgba(var(--rgb-green), 0.05);
+    transition: background .16s, border-color .16s, color .16s, box-shadow .16s;
+}
+.rf-type input:checked + span {
+    color: var(--ink); background: var(--green); border-color: var(--green);
+    box-shadow: 0 0 18px rgba(var(--rgb-green), 0.35);
+}
+.rf-type input:focus-visible + span { outline: 2px solid var(--mint); outline-offset: 2px; }
+.rf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.rf-field { display: flex; flex-direction: column; gap: 8px; }
+.rf-lab { font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: rgba(var(--rgb-mint), 0.75); }
+.rf-lab small { text-transform: none; letter-spacing: 0; color: rgba(var(--rgb-mint), 0.45); }
+.report-form input[type=text],
+.report-form input[type=email],
+.report-form select,
+.report-form textarea {
+    font-family: var(--font-mono); font-size: 14px; color: var(--bright);
+    background: rgba(3, 8, 6, 0.7);
+    border: 1px solid rgba(var(--rgb-green), 0.28);
+    padding: 12px 14px; width: 100%;
+    transition: border-color .16s, box-shadow .16s, background .16s;
+}
+.report-form textarea { resize: vertical; line-height: 1.5; min-height: 120px; }
+.report-form input:focus,
+.report-form select:focus,
+.report-form textarea:focus {
+    outline: none; border-color: var(--green);
+    box-shadow: 0 0 0 1px var(--green), 0 0 20px rgba(var(--rgb-green), 0.18);
+    background: rgba(6, 14, 10, 0.9);
+}
+.report-form ::placeholder { color: rgba(var(--rgb-mint), 0.35); }
+.report-form select {
+    appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 34px;
+    background-image: linear-gradient(45deg, transparent 50%, var(--mint) 50%), linear-gradient(135deg, var(--mint) 50%, transparent 50%);
+    background-position: right 16px center, right 11px center;
+    background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
+}
+.rf-honey { position: absolute !important; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.rf-foot { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.rf-status { font-family: var(--font-mono); font-size: 13px; letter-spacing: .5px; color: rgba(var(--rgb-mint), 0.8); }
+.rf-status.ok { color: var(--green); }
+.rf-status.err { color: #ff6b6b; }
+#reportSend[disabled] { opacity: .55; cursor: default; }
+.rf-sent { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding: 26px 6px; }
+.rf-sent .big { font-size: 44px; line-height: 1; }
+.rf-sent h3 { font-family: var(--font-head); color: var(--bright); letter-spacing: 2px; margin: 0; }
+.rf-sent p { color: rgba(var(--rgb-mint), 0.82); margin: 0; max-width: 44ch; }
+@media (max-width: 560px){ .rf-grid { grid-template-columns: 1fr; } }
+
+/* ── Урок: избор на система + гид ─────────────────────────────────── */
+.os-tabs { display: flex; gap: 10px; justify-content: center; margin: 6px auto 26px; }
+.os-tab {
+    font-family: var(--font-mono); font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--mint); padding: 12px 26px; cursor: pointer;
+    border: 1px solid rgba(var(--rgb-green), 0.35);
+    background: rgba(var(--rgb-green), 0.05);
+    transition: background .16s, border-color .16s, color .16s, box-shadow .16s;
+}
+.os-tab:hover { border-color: rgba(var(--rgb-green), 0.7); }
+.os-tab.is-active {
+    color: var(--ink); background: var(--green); border-color: var(--green);
+    box-shadow: 0 0 22px rgba(var(--rgb-green), 0.4);
+}
+.os-panel { display: none; }
+.os-panel.is-active { display: block; }
+.hint {
+    margin-top: 10px !important; font-size: 14px;
+    color: rgba(var(--rgb-mint), 0.72);
+    border-left: 2px solid rgba(var(--rgb-green), 0.5);
+    padding-left: 12px;
+}
+.hint b { color: var(--bright); }
+
+/* Къде е DODO */
+.where-box { margin-top: 26px; }
+.where-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 16px; }
+.where-col .wk {
+    font-family: var(--font-mono); font-size: 15px; letter-spacing: 1px;
+    color: var(--green); margin-bottom: 10px;
+}
+.where-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.where-col li { position: relative; padding-left: 20px; color: rgba(var(--rgb-mint), 0.85); line-height: 1.5; }
+.where-col li::before { content: "▸"; position: absolute; left: 0; color: var(--green); }
+.where-col li b { color: var(--bright); }
+
+/* Въпроси и спънки */
+.faq { margin-top: 26px; }
+.faq-head { text-align: center; margin: 0 auto 18px; }
+.faq details {
+    border: 1px solid rgba(var(--rgb-green), 0.22);
+    background: rgba(10, 20, 16, 0.5);
+    margin-bottom: 10px; transition: border-color .16s;
+}
+.faq details[open] { border-color: rgba(var(--rgb-green), 0.45); }
+.faq summary {
+    cursor: pointer; list-style: none; padding: 15px 18px;
+    font-family: var(--font-mono); font-size: 15px; color: var(--bright);
+    display: flex; align-items: center; gap: 12px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::before {
+    content: "+"; color: var(--green); font-size: 20px; line-height: 1;
+    width: 16px; text-align: center; transition: transform .18s;
+}
+.faq details[open] summary::before { content: "–"; }
+.faq summary:hover { color: var(--green); }
+.faq details p { padding: 0 18px 16px 46px; color: rgba(var(--rgb-mint), 0.82); line-height: 1.6; }
+.faq details p b { color: var(--bright); }
+
+@media (max-width: 640px){ .where-grid { grid-template-columns: 1fr; gap: 22px; } }

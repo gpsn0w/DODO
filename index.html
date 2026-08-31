@@ -20,6 +20,7 @@
 		<a href="#privacy">Спокойствие</a>
 		<a href="#download">Изтегляне</a>
 		<a href="#install">Урок</a>
+		<a href="#report">Сигнали</a>
 	</nav>
 	<div class="bar-clock" id="barClock">--:--:--</div>
 </header>
@@ -164,30 +165,103 @@
 		<div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
 			<span class="eyebrow">Урок</span>
 			<h2>Как да инсталираш DODO</h2>
-			<p>От сваляне до първи разговор — за 3 минути. Стъпка по стъпка.</p>
+			<p>От сваляне до първи разговор — за 3 минути. Избери своята система и следвай стъпките.</p>
 		</div>
 
-		<div class="guide">
-			<div class="guide-step panel reveal">
-				<div class="gn">1</div>
-				<div class="gt">
-					<h3>Изтегли файла</h3>
-					<p>Натисни бутона за Mac или Windows в „Изтегляне“ по-горе. Файлът се сваля сам — обикновено в папка „Изтегляния“ (Downloads).</p>
+		<div class="os-tabs reveal" role="tablist" aria-label="Избери система">
+			<button class="os-tab is-active" data-os="mac" role="tab" aria-selected="true">⌘ Mac</button>
+			<button class="os-tab" data-os="win" role="tab" aria-selected="false">⊞ Windows</button>
+		</div>
+
+		<div class="os-panel is-active" data-os="mac">
+			<div class="guide">
+				<div class="guide-step panel reveal">
+					<div class="gn">1</div>
+					<div class="gt">
+						<h3>Изтегли файла</h3>
+						<p>Върни се горе на „<a href="#download">Изтегляне</a>" и натисни <b>▼ Изтегли за Mac</b>. Сваля се файл <b>DODO-1.0.0-arm64.dmg</b> (около 708 MB) — трае минута-две.</p>
+						<p class="hint">📁 <b>Къде отива:</b> в папка „Изтегляния" (Downloads). Отваряш Finder → вляво в лентата „Изтегляния"; или горе вдясно в Safari — стрелката ↓.</p>
+					</div>
+				</div>
+				<div class="guide-step panel reveal">
+					<div class="gn">2</div>
+					<div class="gt">
+						<h3>Отвори .dmg файла</h3>
+						<p>Натисни <b>два пъти</b> върху сваления <b>DODO-1.0.0-arm64.dmg</b>. Появява се прозорче с иконата на DODO и папка „Applications".</p>
+					</div>
+				</div>
+				<div class="guide-step panel reveal">
+					<div class="gn">3</div>
+					<div class="gt">
+						<h3>Плъзни DODO в „Applications"</h3>
+						<p>Хвани иконата на <b>DODO</b> и я <b>плъзни</b> върху папката <b>Applications</b> (Приложения) в същото прозорче. Готово — вече е инсталиран.</p>
+					</div>
+				</div>
+				<div class="guide-step panel reveal">
+					<div class="gn">4</div>
+					<div class="gt">
+						<h3>Пусни го за пръв път</h3>
+						<p>Отвори <b>Launchpad</b> (или папка „Приложения") и натисни <b>DODO</b>.</p>
+						<p class="hint">🔓 <b>Ако Mac каже „неидентифициран разработчик":</b> щракни с <b>десен бутон</b> върху DODO → <b>Open</b> → пак <b>Open</b>. Прави се само първия път — после се отваря нормално.</p>
+					</div>
 				</div>
 			</div>
-			<div class="guide-step panel reveal">
-				<div class="gn">2</div>
-				<div class="gt">
-					<h3>Отвори инсталатора</h3>
-					<p><b>Windows:</b> натисни два пъти сваления <b>DODO-Setup-1.0.0.exe</b> и следвай стъпките. Ако Windows покаже син екран „Windows protected your PC“, натисни „More info → Все пак изпълни (Run anyway)“.<br>
-					<b>Mac:</b> отвори сваления файл и плъзни иконата на DODO в папка „Applications“. Първия път щракни с десен бутон върху DODO → „Open“.</p>
+		</div>
+
+		<div class="os-panel" data-os="win">
+			<div class="guide">
+				<div class="guide-step panel reveal">
+					<div class="gn">1</div>
+					<div class="gt">
+						<h3>Изтегли файла</h3>
+						<p>Върни се горе на „<a href="#download">Изтегляне</a>" и натисни <b>▼ Изтегли за Windows</b>. Сваля се <b>DODO-Setup-1.0.0.exe</b> (около 886 MB).</p>
+						<p class="hint">📁 <b>Къде отива:</b> в папка „Downloads" (Изтегляния). Отваряш File Explorer (жълтата папка на лентата) → вляво „Downloads"; или в браузъра горе вдясно — стрелката ↓.</p>
+					</div>
+				</div>
+				<div class="guide-step panel reveal">
+					<div class="gn">2</div>
+					<div class="gt">
+						<h3>Отвори инсталатора</h3>
+						<p>Натисни <b>два пъти</b> върху <b>DODO-Setup-1.0.0.exe</b>.</p>
+						<p class="hint">🔵 <b>Ако излезе син екран „Windows protected your PC":</b> това е нормално за нови програми. Натисни <b>„More info"</b> → <b>„Run anyway"</b> (Все пак изпълни).</p>
+					</div>
+				</div>
+				<div class="guide-step panel reveal">
+					<div class="gn">3</div>
+					<div class="gt">
+						<h3>Мини през инсталатора</h3>
+						<p>Натискаш <b>„Напред / Next"</b>, по желание избираш папка, после <b>„Инсталирай / Install"</b>. За секунди е готово и слага иконка на десктопа.</p>
+					</div>
+				</div>
+				<div class="guide-step panel reveal">
+					<div class="gn">4</div>
+					<div class="gt">
+						<h3>Пусни DODO</h3>
+						<p>Натисни <b>два пъти</b> иконата <b>DODO</b> на десктопа, или го намери в <b>Старт менюто</b> (пишеш „DODO").</p>
+					</div>
 				</div>
 			</div>
-			<div class="guide-step panel reveal">
-				<div class="gn">3</div>
-				<div class="gt">
-					<h3>Пусни DODO</h3>
-					<p>Отвори DODO от списъка с програми. Ще се появи екранът за настройка — това е Setup менюто.</p>
+		</div>
+
+		<div class="panel where-box reveal">
+			<span class="eyebrow">Не го намираш?</span>
+			<h3>Къде е DODO след инсталация</h3>
+			<div class="where-grid">
+				<div class="where-col">
+					<div class="wk">⌘ На Mac</div>
+					<ul>
+						<li><b>Launchpad</b> — иконата с ракетата на дока → пиши „DODO".</li>
+						<li><b>Spotlight</b> — натисни <b>Cmd + интервал</b>, напиши „DODO", Enter.</li>
+						<li>Или папка <b>„Приложения" (Applications)</b> във Finder.</li>
+					</ul>
+				</div>
+				<div class="where-col">
+					<div class="wk">⊞ На Windows</div>
+					<ul>
+						<li>Иконката <b>DODO</b> на <b>десктопа</b>.</li>
+						<li><b>Старт менюто</b> — натисни клавиша Windows и пиши „DODO".</li>
+						<li>За да е винаги подръка: десен клик на иконата → <b>„Pin to taskbar"</b>.</li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -195,7 +269,7 @@
 		<div class="panel setup-box reveal">
 			<span class="eyebrow">Setup менюто</span>
 			<h3>Какво е това и защо се появява?</h3>
-			<p>При първото пускане DODO те води през кратка настройка — 5 лесни стъпки. Прави се само веднъж и подготвя помощника за теб. Ти само четеш и натискаш „Напред“.</p>
+			<p>При първото пускане DODO те води през кратка настройка — 5 лесни стъпки. Прави се само веднъж и подготвя помощника за теб. Ти само четеш и натискаш „Напред".</p>
 			<ol class="setup-list">
 				<li><span class="sk">Име</span><span class="sv">Как да те нарича DODO — име или прякор.</span></li>
 				<li><span class="sk">Код</span><span class="sv">Кратък код, за да те познава само теб и да пази нещата ти заключени.</span></li>
@@ -205,10 +279,65 @@
 			</ol>
 			<p class="setup-note">💡 Съвет: запиши ключа за възстановяване на листче и го скрий. Той е единственият начин да отключиш, ако забравиш кода.</p>
 		</div>
+
+		<div class="faq reveal">
+			<div class="faq-head"><span class="eyebrow">Въпроси и спънки</span><h3>Ако нещо те обърка</h3></div>
+			<details><summary>Свалих го, но не го намирам никъде</summary><p><b>Mac:</b> отвори Launchpad или натисни Cmd+интервал и напиши „DODO". <b>Windows:</b> виж на десктопа, или натисни клавиша Windows и напиши „DODO". Виж и „Къде е DODO след инсталация" по-горе.</p></details>
+			<details><summary>Пише, че файлът е опасен или „не е проверен"</summary><p>Това е обичайно предупреждение за всяка нова програма, която системата още не познава. DODO е безопасен и работи офлайн. <b>Mac:</b> десен клик върху DODO → „Open" → „Open". <b>Windows:</b> „More info" → „Run anyway".</p></details>
+			<details><summary>Защо файлът е толкова голям (700–900 MB)?</summary><p>Защото DODO носи всичко в себе си — гласа, разпознаването на реч, мозъка — за да работи <b>без интернет</b> и без да праща данните ти навън. Сваля се веднъж.</p></details>
+			<details><summary>Трябва ли ми интернет?</summary><p>Не, за да работи. Интернет се ползва само за две неща: <b>времето</b> и <b>новините</b>. Всичко останало става на твоя компютър.</p></details>
+			<details><summary>Безплатно ли е?</summary><p>Да, напълно безплатно. Сваляш, пускаш и говориш.</p></details>
+			<details><summary>Как да го закача на лентата/дока?</summary><p><b>Mac:</b> докато DODO е отворен, десен клик на иконата му в дока → „Options" → „Keep in Dock". <b>Windows:</b> десен клик на иконата в лентата → „Pin to taskbar".</p></details>
+			<details><summary>Как да го махна (деинсталирам)?</summary><p><b>Mac:</b> отвори „Приложения", хвани DODO и го плъзни в Кошчето. <b>Windows:</b> Настройки → „Приложения" (Apps) → намери DODO → „Uninstall".</p></details>
+			<details><summary>Нещо друго не работи?</summary><p>Пиши ни в раздел „<a href="#report">Сигнали</a>" по-долу — описваш какво стана и ние го оправяме.</p></details>
+		</div>
 	</div>
 </section>
 
-<section class="section" id="about">
+<section class="section" id="report">
+	<div class="wrap">
+		<div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
+			<span class="eyebrow">Обратна връзка</span>
+			<h2>Съобщи проблем или идея</h2>
+			<p>Нещо не работи или имаш идея? Пиши тук — стига директно до нас. Без акаунт, без регистрация.</p>
+		</div>
+		<form class="panel report-form reveal" id="reportForm" novalidate>
+			<div class="rf-types" role="radiogroup" aria-label="Вид">
+				<label class="rf-type"><input type="radio" name="Вид" value="🐞 Проблем" checked><span>🐞 Проблем</span></label>
+				<label class="rf-type"><input type="radio" name="Вид" value="💡 Идея"><span>💡 Идея</span></label>
+				<label class="rf-type"><input type="radio" name="Вид" value="❓ Въпрос"><span>❓ Въпрос</span></label>
+			</div>
+			<div class="rf-grid">
+				<label class="rf-field">
+					<span class="rf-lab">Система</span>
+					<select name="Система"><option>Mac</option><option>Windows</option><option>Друго</option></select>
+				</label>
+				<label class="rf-field">
+					<span class="rf-lab">Версия <small>(по избор)</small></span>
+					<input type="text" name="Версия" placeholder="напр. 1.0.0" autocomplete="off">
+				</label>
+			</div>
+			<label class="rf-field">
+				<span class="rf-lab">Какво стана / какво предлагаш</span>
+				<textarea name="Съобщение" rows="5" required placeholder="Опиши какво се случи, стъпка по стъпка. Колкото повече, толкова по-лесно го оправяме."></textarea>
+			</label>
+			<label class="rf-field">
+				<span class="rf-lab">Имейл за отговор <small>(по избор)</small></span>
+				<input type="email" name="Имейл" placeholder="за да ти отговорим" autocomplete="email">
+			</label>
+			<input type="text" name="_honey" class="rf-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+			<input type="hidden" name="_subject" value="DODO · нов сигнал от сайта">
+			<input type="hidden" name="_captcha" value="false">
+			<input type="hidden" name="_template" value="table">
+			<div class="rf-foot">
+				<button type="submit" class="btn" id="reportSend">▸ Изпрати</button>
+				<span class="rf-status" id="reportStatus" aria-live="polite"></span>
+			</div>
+		</form>
+	</div>
+</section>
+
+<section class="section alt" id="about">
 	<div class="wrap">
 		<div class="section-head reveal"><span class="eyebrow">За проекта</span><h2>Кой стои зад DODO</h2></div>
 		<div class="about-grid">
