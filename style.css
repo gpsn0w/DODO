@@ -850,3 +850,27 @@ h1, h2, h3, h4 {
 .faq details p b { color: var(--bright); }
 
 @media (max-width: 640px){ .where-grid { grid-template-columns: 1fr; gap: 22px; } }
+
+/* ── Новото (changelog) ─────────────────────────────── */
+.changelog { max-width: 760px; margin: 34px auto 0; display: flex; flex-direction: column; gap: 20px; }
+.release { }
+.release-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.release-ver {
+    font-family: var(--font-head); font-size: 24px; font-weight: 800; letter-spacing: 2px;
+    color: var(--bright);
+}
+.release-tag {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(var(--rgb-mint), 0.7);
+    border: 1px solid rgba(var(--rgb-green), 0.3); border-radius: 20px; padding: 4px 12px;
+}
+.release-tag.latest {
+    color: var(--ink); background: var(--green); border-color: var(--green);
+    box-shadow: 0 0 16px rgba(var(--rgb-green), 0.4);
+}
+.release-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.release-list li {
+    font-size: 14px; line-height: 1.55; color: rgba(var(--rgb-mint), 0.85);
+    padding-left: 4px;
+}
+.release-list li b { color: var(--bright); }
