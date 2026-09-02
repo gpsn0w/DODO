@@ -21,7 +21,7 @@ Tags: dark, one-column, custom-menu, custom-logo, featured-images, translation-r
     font-style: normal;
     font-weight: 400 900;
     font-display: swap;
-    src: url('orbitron.woff2') format('woff2');
+    src: url('orbitron.woff2?v=2') format('woff2');
 }
 @font-face {
     font-family: 'Share Tech Mono';
