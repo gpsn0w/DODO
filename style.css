@@ -702,8 +702,9 @@ h1, h2, h3, h4 {
     .steps { grid-template-columns: 1fr; gap: 12px; }
     .steps::before { display: none; }
     .tilt .ico, .tilt h3 { transform: none; }
-}
-@media (max-width: 720px) {
+
+    /* Навигацията се свива в хамбургер още на таблет (≤900), иначе
+       менюто + часовникът се разливат извън хедъра. */
     .bar-clock { display: none; }
     .nav {
         position: fixed; top: var(--bar-h); left: 0; right: 0;
@@ -716,6 +717,8 @@ h1, h2, h3, h4 {
     .nav.open { transform: none; }
     .nav a { padding: 12px; border-bottom: 1px solid rgba(var(--rgb-green), 0.12); }
     .nav-toggle { display: block; }
+}
+@media (max-width: 720px) {
     .grid, .download-grid { grid-template-columns: 1fr; }
     .section { padding: 60px 0; }
     .setup-list li { grid-template-columns: 1fr; gap: 2px; padding: 12px 0; }
@@ -970,7 +973,7 @@ h1, h2, h3, h4 {
 	letter-spacing: .04em;
 }
 
-/* Глич на логото — махнат по желание (счупваше визуално DODO логото). */
+/* Глич на логото — махнат: чистото лого изглежда по-добре. */
 
 /* --- Магнитни бутони: дърпат се към курсора + по-силен неонов ръб --- */
 .magnetic { transition: transform .18s cubic-bezier(.2,.8,.25,1), box-shadow .2s, background .2s, color .2s; will-change: transform; }
