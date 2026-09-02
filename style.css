@@ -970,21 +970,12 @@ h1, h2, h3, h4 {
 	letter-spacing: .04em;
 }
 
-/* --- Глич на логото: RGB-разцепване, силно при hover --- */
-.hero h1.glitch { position: relative; animation: logoGlitch 5.5s steps(1) infinite; }
-@keyframes logoGlitch {
-	0%, 90%, 100% { text-shadow: none; transform: none; }
-	91% { text-shadow: 3px 0 #29d3ff, -3px 0 #ff2bd6; transform: translate(2px,-1px); }
-	92% { text-shadow: -4px 0 #29d3ff, 3px 0 #ff2bd6; transform: translate(-2px,1px) skewX(-3deg); }
-	93% { text-shadow: 2px 0 #22c55e, -2px 0 #29d3ff; transform: translate(1px,0); }
-	94% { text-shadow: none; transform: none; }
-}
-.hero h1.glitch:hover { animation: logoGlitch .5s steps(1) infinite; cursor: default; }
+/* Глич на логото — махнат по желание (счупваше визуално DODO логото). */
 
 /* --- Магнитни бутони: дърпат се към курсора + по-силен неонов ръб --- */
 .magnetic { transition: transform .18s cubic-bezier(.2,.8,.25,1), box-shadow .2s, background .2s, color .2s; will-change: transform; }
 .magnetic:hover { box-shadow: 0 0 22px rgba(34,197,94,.4), inset 0 0 12px rgba(34,197,94,.15); }
 
 @media (prefers-reduced-motion: reduce) {
-	.crt-overlay, .hero h1.glitch { animation: none !important; }
+	.crt-overlay { animation: none !important; }
 }

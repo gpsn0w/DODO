@@ -348,10 +348,7 @@
 		heads.forEach(function (h) { ho.observe(h); });
 	}
 
-	/* --- Глич на логото: RGB-разцепване (пуска се след входната анимация,
-	   за да не я реже), силно при hover --- */
-	var logo = document.querySelector(".hero h1");
-	if (logo) setTimeout(function () { logo.classList.add("glitch"); }, 1700);
+	/* Глич на логото — махнат по желание (счупваше визуално DODO логото). */
 
 	/* --- Магнитни бутони: дърпат се леко към курсора --- */
 	document.querySelectorAll(".btn").forEach(function (btn) {
