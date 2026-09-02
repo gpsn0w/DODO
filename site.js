@@ -206,31 +206,35 @@
 (function () {
 	var form = document.getElementById("reportForm");
 	if (!form) return;
-	/* ⬇ СЛОЖИ ТУК адреса на Cloudflare Worker-а след deploy (виж issue-worker/README.md) ⬇ */
-	var ENDPOINT = "https://dodo-issue-bridge.ТВОЙ-АКАУНТ.workers.dev";
+	/* Сигналите тръгват като готово писмо към този имейл (без сървър). */
+	var MAIL_TO = "gzhechevpro@gmail.com";
 	var btn = document.getElementById("reportSend");
 	var status = document.getElementById("reportStatus");
-	var sending = false;
 
 	function setStatus(text, kind) {
 		status.textContent = text || "";
 		status.className = "rf-status" + (kind ? " " + kind : "");
 	}
-	function succeed(res) {
-		var link = (res && res.url)
-			? '<p><a class="btn ghost" href="' + res.url + '" target="_blank" rel="noopener">▸ Виж сигнала №' + (res.number || "") + '</a></p>'
-			: "";
+	function succeed() {
 		form.innerHTML = '<div class="rf-sent">' +
 			'<div class="big">✓</div>' +
-			'<h3>ПОЛУЧИХМЕ ГО</h3>' +
-			'<p>Благодарим! Четем всеки сигнал. Ако си оставил имейл, ще ти отговорим.</p>' +
-			link +
+			'<h3>ГОТОВО ПИСМО</h3>' +
+			'<p>Мейл програмата ти се отвори с попълнено писмо — само натисни „Изпрати" там. ' +
+			'Ако нищо не се отвори, пиши ни на <b>' + MAIL_TO + '</b>.</p>' +
 			'</div>';
+	}
+
+	function field(name) {
+		var el = form.querySelector('[name="' + name + '"]');
+		return el ? el.value.trim() : "";
+	}
+	function picked(name) {
+		var el = form.querySelector('[name="' + name + '"]:checked');
+		return el ? el.value : "";
 	}
 
 	form.addEventListener("submit", function (e) {
 		e.preventDefault();
-		if (sending) return;
 
 		var honey = form.querySelector(".rf-honey");
 		if (honey && honey.value) { succeed(); return; }   /* бот — правим се, че сме приели */
@@ -242,29 +246,28 @@
 			return;
 		}
 
-		var data = {};
-		new FormData(form).forEach(function (v, k) { data[k] = v; });
+		/* Съставяме готово писмо и отваряме мейл програмата — без сървър,
+		   без акаунт. Работи и на телефон, и на компютър. */
+		var vid = picked("Вид") || "Сигнал";
+		var sys = field("Система");
+		var ver = field("Версия");
+		var mail = field("Имейл");
 
-		sending = true;
-		btn.disabled = true;
-		setStatus("Изпращам…", "");
+		var subject = "DODO · " + vid + (sys ? " · " + sys : "") + (ver ? " " + ver : "");
+		var body =
+			"Вид: " + vid + "\n" +
+			"Система: " + (sys || "—") + "\n" +
+			"Версия: " + (ver || "—") + "\n" +
+			(mail ? "Имейл за отговор: " + mail + "\n" : "") +
+			"\nСъобщение:\n" + msg.value.trim() + "\n";
 
-		fetch(ENDPOINT, {
-			method: "POST",
-			headers: { "Content-Type": "application/json", "Accept": "application/json" },
-			body: JSON.stringify(data)
-		}).then(function (r) { return r.json().catch(function () { return {}; }); })
-		  .then(function (res) {
-			if (res && (res.success === "true" || res.success === true)) {
-				succeed(res);
-			} else {
-				sending = false; btn.disabled = false;
-				setStatus("Нещо се обърка. Пробвай пак или ни пиши на имейла.", "err");
-			}
-		}).catch(function () {
-			sending = false; btn.disabled = false;
-			setStatus("Няма връзка. Провери интернета и пробвай пак.", "err");
-		});
+		var href = "mailto:" + MAIL_TO +
+			"?subject=" + encodeURIComponent(subject) +
+			"&body=" + encodeURIComponent(body);
+
+		setStatus("Отварям мейла ти…", "");
+		window.location.href = href;
+		setTimeout(succeed, 700);
 	});
 })();
 
