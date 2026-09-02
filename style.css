@@ -936,3 +936,55 @@ h1, h2, h3, h4 {
 	font-size: 13px; line-height: 1.6; color: rgba(110, 231, 183, 0.6);
 }
 .songs-foot b { color: var(--bright, #d6ffe9); }
+
+/* ============================================================
+   БРУТАЛНИ АНИМАЦИИ — HUD/хакерски слой
+   ============================================================ */
+
+/* --- CRT слой: скенлайни + винетка + трепет + плъзгаща лента ---
+   z-index под лентата (100) и заключването (200), за да останат чисти —
+   иначе multiply слоят смачква логото при скрол. */
+.crt-overlay {
+	position: fixed; inset: 0; pointer-events: none; z-index: 90;
+	opacity: .5; mix-blend-mode: multiply;
+	background: repeating-linear-gradient(0deg,
+		rgba(0,0,0,0) 0 2px, rgba(0,0,0,.13) 2px 3px);
+	animation: crtFlicker 4.5s steps(2) infinite;
+}
+.crt-overlay::after {
+	content: ""; position: absolute; inset: 0;
+	background: radial-gradient(135% 135% at 50% 45%, transparent 52%, rgba(0,0,0,.5) 100%);
+}
+.crt-overlay::before {
+	content: ""; position: absolute; left: 0; right: 0; top: -32vh; height: 32vh;
+	background: linear-gradient(180deg, transparent, rgba(34,197,94,.055), transparent);
+	animation: crtSweep 7.5s linear infinite;
+}
+@keyframes crtSweep { 0% { top: -32vh; } 100% { top: 100%; } }
+@keyframes crtFlicker { 0%,100% { opacity: .5; } 48% { opacity: .44; } 52% { opacity: .53; } }
+
+/* --- Декодиращи заглавия: докато „декодират", светят зелено --- */
+.decoding {
+	color: var(--green) !important;
+	text-shadow: 0 0 14px rgba(34,197,94,.5);
+	letter-spacing: .04em;
+}
+
+/* --- Глич на логото: RGB-разцепване, силно при hover --- */
+.hero h1.glitch { position: relative; animation: logoGlitch 5.5s steps(1) infinite; }
+@keyframes logoGlitch {
+	0%, 90%, 100% { text-shadow: none; transform: none; }
+	91% { text-shadow: 3px 0 #29d3ff, -3px 0 #ff2bd6; transform: translate(2px,-1px); }
+	92% { text-shadow: -4px 0 #29d3ff, 3px 0 #ff2bd6; transform: translate(-2px,1px) skewX(-3deg); }
+	93% { text-shadow: 2px 0 #22c55e, -2px 0 #29d3ff; transform: translate(1px,0); }
+	94% { text-shadow: none; transform: none; }
+}
+.hero h1.glitch:hover { animation: logoGlitch .5s steps(1) infinite; cursor: default; }
+
+/* --- Магнитни бутони: дърпат се към курсора + по-силен неонов ръб --- */
+.magnetic { transition: transform .18s cubic-bezier(.2,.8,.25,1), box-shadow .2s, background .2s, color .2s; will-change: transform; }
+.magnetic:hover { box-shadow: 0 0 22px rgba(34,197,94,.4), inset 0 0 12px rgba(34,197,94,.15); }
+
+@media (prefers-reduced-motion: reduce) {
+	.crt-overlay, .hero h1.glitch { animation: none !important; }
+}

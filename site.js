@@ -296,3 +296,73 @@
 	var ua = (navigator.userAgent || "") + " " + (navigator.platform || "");
 	if (/Win/i.test(ua)) show("win");
 })();
+
+/* ============================================================
+   БРУТАЛНИ АНИМАЦИИ — HUD/хакерски стил
+   Декодиращи заглавия, глич на логото, магнитни бутони и CRT
+   слой със скенлайни. Всичко е прогресивно: спре ли JS или
+   човек иска „по-малко движение", сайтът си работи както преди.
+   ============================================================ */
+(function () {
+	var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	/* --- CRT слой: скенлайни + винетка + плъзгаща се лента --- */
+	var crt = document.createElement("div");
+	crt.className = "crt-overlay";
+	crt.setAttribute("aria-hidden", "true");
+	document.body.appendChild(crt);
+
+	if (reduce) return;   // уважаваме „по-малко движение"
+
+	/* --- Декодиращи заглавия: буквите се въртят като код и щракват --- */
+	var glyphs = "█▓▒░#%&/\\<>*+=-!?01アカサ日ロABCDEF".split("");
+	function scramble(el) {
+		if (el.dataset.scrambling) return;
+		var full = el.getAttribute("data-full") || el.textContent;
+		el.setAttribute("data-full", full);
+		el.dataset.scrambling = "1";
+		el.classList.add("decoding");
+		var len = full.length, reveal = 0, frame = 0;
+		var id = setInterval(function () {
+			var out = "";
+			for (var i = 0; i < len; i++) {
+				var c = full.charAt(i);
+				if (c === " " || i < reveal) { out += c; }
+				else { out += glyphs[(Math.random() * glyphs.length) | 0]; }
+			}
+			el.textContent = out;
+			if (++frame % 2 === 0) reveal++;
+			if (reveal > len) {
+				clearInterval(id);
+				el.textContent = full;
+				el.dataset.scrambling = "";
+				el.classList.remove("decoding");
+			}
+		}, 26);
+	}
+	var heads = document.querySelectorAll(".section-head h2, .eyebrow, .demo-grid h2");
+	if ("IntersectionObserver" in window) {
+		var ho = new IntersectionObserver(function (es) {
+			es.forEach(function (e) { if (e.isIntersecting) { scramble(e.target); ho.unobserve(e.target); } });
+		}, { threshold: 0.55 });
+		heads.forEach(function (h) { ho.observe(h); });
+	}
+
+	/* --- Глич на логото: RGB-разцепване (пуска се след входната анимация,
+	   за да не я реже), силно при hover --- */
+	var logo = document.querySelector(".hero h1");
+	if (logo) setTimeout(function () { logo.classList.add("glitch"); }, 1700);
+
+	/* --- Магнитни бутони: дърпат се леко към курсора --- */
+	document.querySelectorAll(".btn").forEach(function (btn) {
+		btn.classList.add("magnetic");
+		btn.addEventListener("pointermove", function (e) {
+			if (btn.matches(":active")) return;
+			var r = btn.getBoundingClientRect();
+			var mx = e.clientX - r.left - r.width / 2;
+			var my = e.clientY - r.top - r.height / 2;
+			btn.style.transform = "translate(" + (mx * 0.22).toFixed(1) + "px," + (my * 0.32).toFixed(1) + "px)";
+		});
+		btn.addEventListener("pointerleave", function () { btn.style.transform = ""; });
+	});
+})();
