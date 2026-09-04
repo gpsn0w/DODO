@@ -1,0 +1,12 @@
+name = "dodo-issue-bridge"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+[vars]
+REPO = "gpsn0w/DODO"
+# CORS: сложи точния адрес на сайта след като го знаеш, напр.
+# ORIGIN = "https://gpsn0w.github.io"
+ORIGIN = "*"
+
+# GITHUB_TOKEN НЕ се пише тук — слага се като таен:
+#   npx wrangler secret put GITHUB_TOKEN
