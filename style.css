@@ -1044,3 +1044,11 @@ body.lang-glitching::before {
     background: #d6ffe9; mix-blend-mode: overlay; opacity: 0; animation: gFlash 1s steps(1) both;
 }
 @keyframes gFlash { 0%,100%{opacity:0} 6%{opacity:.5} 8%{opacity:0} 20%{opacity:.35} 22%{opacity:0} 31%{opacity:.6} 33%{opacity:0} 50%{opacity:.28} 52%{opacity:0} }
+
+/* About на телефон: без хоризонтално разливане (grid децата да могат да се свиват) */
+.about-grid > * { min-width: 0; }
+.about-grid .contact-list .v, .about-grid .contact-list .v a { overflow-wrap: anywhere; word-break: break-word; }
+@media (max-width: 560px) {
+    .about-grid { gap: 16px; }
+    #about .panel { padding: 16px; }
+}
