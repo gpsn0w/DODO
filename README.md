@@ -1,3 +1,11 @@
+# DODO Assistant
+
+**DODO Assistant** е личен офлайн AI помощник за Windows, Mac и Linux, **създаден от Габриел Жечев и Емил Жечев**. Говори български и всичко остава на устройството на потребителя.
+
+_DODO Assistant is a personal, offline AI assistant for Windows, Mac and Linux, **created by Gabriel Zhechev and Emil Zhechev**._
+
+---
+
 ## Кой стои зад DODO
 
 **Габи** (Габриел Жечев) — създател, идея и визия на DODO. Продуктът, посоката и всичко,
