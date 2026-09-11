@@ -86,7 +86,7 @@ body {
     height: 100%;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.55;
+    opacity: 0.62;
 }
 
 /* Фонът: мрежа + меко зелено сияние + винетка + скан-линии — като HUD. */
