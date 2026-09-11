@@ -86,7 +86,23 @@ body {
     height: 100%;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.62;
+    opacity: 0.55;
+}
+
+/* Малък етикет „beta" на функция, която още не е напълно готова. */
+.beta-tag {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    color: var(--mint, #6ee7b7);
+    border: 1px solid rgba(var(--rgb-green), 0.5);
+    border-radius: 999px;
+    background: rgba(var(--rgb-green), 0.12);
 }
 
 /* Фонът: мрежа + меко зелено сияние + винетка + скан-линии — като HUD. */
