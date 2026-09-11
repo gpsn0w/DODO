@@ -58,7 +58,9 @@ Tags: dark, one-column, custom-menu, custom-logo, featured-images, translation-r
 /* ============================== ОСНОВА ============================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: var(--bar-h); }
+html { scroll-behavior: smooth; scroll-padding-top: var(--bar-h);
+    overscroll-behavior-y: none;   /* спира „гумения" отскок/самодърпане на телефона */
+}
 
 body {
     background: var(--ink);
@@ -69,8 +71,10 @@ body {
     letter-spacing: 0.2px;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    overscroll-behavior-y: none;
     position: relative;
     min-height: 100vh;
+    min-height: 100svh;
 }
 
 /* Фонът: мрежа + меко зелено сияние + винетка + скан-линии — като HUD. */
@@ -268,6 +272,7 @@ h1, h2, h3, h4 {
 .hero {
     position: relative;
     min-height: 100vh;
+    min-height: 100svh;   /* мобилно: не скача, когато address bar-ът се крие/показва */
     display: flex;
     align-items: center;
     padding: calc(var(--bar-h) + 40px) 0 60px;
@@ -981,4 +986,44 @@ h1, h2, h3, h4 {
 
 @media (prefers-reduced-motion: reduce) {
 	.crt-overlay { animation: none !important; }
+}
+
+/* ============ Език BG|EN + глич при смяна ============ */
+.lang-toggle {
+    background: transparent; border: 1px solid rgba(var(--rgb-green), 0.4);
+    border-radius: 6px; color: var(--mint); font-family: var(--font-mono);
+    font-size: 12px; letter-spacing: 1px; padding: 5px 10px; cursor: pointer;
+    margin-right: 12px; transition: border-color .15s, box-shadow .15s;
+}
+.lang-toggle:hover { border-color: var(--green); box-shadow: 0 0 12px rgba(var(--rgb-green), 0.35); }
+.lang-toggle .on { color: var(--ink); background: var(--green); padding: 1px 5px; border-radius: 3px; }
+.lang-toggle .lang-sep { opacity: .4; margin: 0 4px; }
+
+/* Силен глич на цялата страница при смяна на езика. */
+@keyframes siteGlitchShift {
+    0%   { transform: translate(0,0); filter: none; }
+    10%  { transform: translate(-4px,2px); filter: hue-rotate(40deg) saturate(1.6); }
+    20%  { transform: translate(5px,-3px); }
+    30%  { transform: translate(-6px,1px); filter: contrast(1.4); }
+    45%  { transform: translate(4px,2px); }
+    60%  { transform: translate(-3px,-2px); filter: hue-rotate(-30deg); }
+    75%  { transform: translate(3px,1px); }
+    100% { transform: translate(0,0); filter: none; }
+}
+body.lang-glitching #main { animation: siteGlitchShift .55s steps(2, jump-none) both; }
+/* RGB сплит + резени по време на глича */
+body.lang-glitching #main::after {
+    content: ""; position: fixed; inset: 0; z-index: 95; pointer-events: none;
+    background: repeating-linear-gradient(0deg, rgba(255,0,80,.06) 0 2px, rgba(0,255,160,.06) 2px 4px);
+    mix-blend-mode: screen; animation: siteGlitchBars .55s steps(6) both;
+}
+@keyframes siteGlitchBars {
+    0%,100% { clip-path: inset(0 0 100% 0); opacity: 0; }
+    20% { clip-path: inset(10% 0 40% 0); opacity: 1; transform: translateX(-8px); }
+    40% { clip-path: inset(60% 0 20% 0); opacity: 1; transform: translateX(10px); }
+    60% { clip-path: inset(30% 0 55% 0); opacity: 1; transform: translateX(-6px); }
+    80% { clip-path: inset(75% 0 5% 0); opacity: 1; transform: translateX(6px); }
+}
+body.lang-glitching [data-en], body.lang-glitching h1, body.lang-glitching h2 {
+    text-shadow: 2px 0 rgba(255,0,80,.7), -2px 0 rgba(0,255,160,.7);
 }

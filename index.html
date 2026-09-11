@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="5k1Oddgz-0KGbycknInj2upvTUPkg0-vcYuYxrvmJys" />
 
-<title>DODO Assistant — личен AI помощник | Габриел Жечев, Емил Жечев</title>
-<meta name="description" content="DODO е личен AI помощник за Windows, Mac и Linux, разработен от Габриел Жечев и Емил Жечев. Говориш му на български — той върши. Всичко остава при теб, без облак.">
-<meta name="keywords" content="Габриел Жечев, Емил Жечев, Gabriel Zhechev, Gabi Zhechev, Габи Жечев, DODO, DODO Assistant, DODO асистент, AI помощник, личен асистент, гласов асистент, офлайн AI, поверителност, privacy, Windows, Mac, Linux">
+<title>DODO Assistant — личен помощник на компютъра | Габриел Жечев, Емил Жечев</title>
+<meta name="description" content="DODO е личен помощник за Windows, Mac и Linux, разработен от Габриел Жечев и Емил Жечев. Говориш му на български (гласовото управление е в бета) — той върши. Всичко остава при теб, без облак.">
+<meta name="keywords" content="Габриел Жечев, Емил Жечев, Gabriel Zhechev, Gabi Zhechev, Габи Жечев, DODO, DODO Assistant, DODO асистент, личен помощник, личен асистент, гласов асистент, офлайн помощник, поверителност, privacy, Windows, Mac, Linux">
 <meta name="author" content="Габриел Жечев, Емил Жечев">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#05070a">
@@ -16,18 +16,18 @@
 <link rel="canonical" href="https://gpsn0w.github.io/DODO/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DODO Assistant">
-<meta property="og:title" content="DODO — твоят личен AI помощник">
+<meta property="og:title" content="DODO — твоят личен помощник">
 <meta property="og:description" content="Работи на твоя компютър, говори български, всичко остава при теб. За Windows, Mac и Linux.">
 <meta property="og:url" content="https://gpsn0w.github.io/DODO/">
 <meta property="og:image" content="https://gpsn0w.github.io/DODO/logo.png">
 <meta property="og:locale" content="bg_BG">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="DODO — твоят личен AI помощник">
+<meta name="twitter:title" content="DODO — твоят личен помощник">
 <meta name="twitter:description" content="Работи на твоя компютър, говори български, всичко остава при теб.">
 <meta name="twitter:image" content="https://gpsn0w.github.io/DODO/logo.png">
 
 <link rel="icon" href="logo.png" type="image/png">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body class="home">
 
@@ -37,15 +37,18 @@
 	<a class="brand" href="#top"><img src="logo.png" alt="DODO"><span class="name">DODO</span></a>
 	<button class="nav-toggle" id="navToggle" aria-expanded="false">≡</button>
 	<nav class="nav" id="nav">
-		<a href="#how">Как работи</a>
-		<a href="#features">Какво може</a>
-		<a href="#privacy">Спокойствие</a>
-		<a href="#download">Изтегляне</a>
-		<a href="#updates">Новото</a>
-		<a href="#install">Урок</a>
-		<a href="#songs">Музика</a>
-		<a href="#report">Сигнали</a>
+		<a href="#how" data-en="How it works">Как работи</a>
+		<a href="#features" data-en="What it can do">Какво може</a>
+		<a href="#privacy" data-en="Privacy">Спокойствие</a>
+		<a href="#download" data-en="Download">Изтегляне</a>
+		<a href="#updates" data-en="What&apos;s new">Новото</a>
+		<a href="#install" data-en="Guide">Урок</a>
+		<a href="#songs" data-en="Music">Музика</a>
+		<a href="#report" data-en="Report">Сигнали</a>
 	</nav>
+	<button class="lang-toggle" id="langToggle" aria-label="Език / Language">
+		<span class="lang-bg on">BG</span><span class="lang-sep">|</span><span class="lang-en">EN</span>
+	</button>
 	<div class="bar-clock" id="barClock">--:--:--</div>
 </header>
 
@@ -54,12 +57,12 @@
 <section class="hero" id="top">
 	<div class="wrap">
 		<div class="hero-copy">
-			<div class="status load-1"><span class="dot"></span> ГОТОВ ДА ПОМОГНЕ</div>
+			<div class="status load-1"><span class="dot"></span> <span data-en="READY TO HELP">ГОТОВ ДА ПОМОГНЕ</span></div>
 			<h1 class="load-2">DO<b>DO</b></h1>
-			<p class="tagline load-3">Твоят помощник на компютъра. Говориш му — той върши. И всичко остава при теб.</p>
+			<p class="tagline load-3" data-en="Your helper on the computer. You speak — it does. And everything stays with you.">Твоят помощник на компютъра. Говориш му — той върши. И всичко остава при теб.</p>
 			<div class="cta load-4">
-				<a class="btn" href="#download">▼ Изтегли безплатно</a>
-				<a class="btn ghost" href="#how">Как работи</a>
+				<a class="btn" href="#download" data-en="▼ Download free">▼ Изтегли безплатно</a>
+				<a class="btn ghost" href="#how" data-en="How it works">Как работи</a>
 			</div>
 		</div>
 		<div class="hero-core-holder load-core"><div id="dodo-hero-core"></div></div>
@@ -78,29 +81,29 @@
 	<div class="wrap">
 		<div class="demo-grid">
 			<div class="reveal">
-				<span class="eyebrow">На живо</span>
-				<h2>Питаш. DODO върши.</h2>
-				<p style="margin-top:14px;color:rgba(var(--rgb-mint),0.85)">Говориш му както на човек. Ето как звучи един обикновен ден с DODO.</p>
+				<span class="eyebrow" data-en="Live">На живо</span>
+				<h2 data-en="You ask. DODO does.">Питаш. DODO върши.</h2>
+				<p style="margin-top:14px;color:rgba(var(--rgb-mint),0.85)" data-en="You talk to it like a person. Here is how an ordinary day with DODO sounds.">Говориш му както на човек. Ето как звучи един обикновен ден с DODO.</p>
 				<div class="stats">
-					<div class="stat reveal"><div class="num">⚡ БЪРЗ</div><div class="lab">отговаря веднага</div></div>
-					<div class="stat reveal"><div class="num" data-count="100">100</div><div class="lab">% при теб</div></div>
-					<div class="stat reveal"><div class="num" data-count="0">0</div><div class="lab">изпратени данни</div></div>
-					<div class="stat reveal"><div class="num">🔒</div><div class="lab">само твой ключ</div></div>
+					<div class="stat reveal"><div class="num" data-en="⚡ FAST">⚡ БЪРЗ</div><div class="lab" data-en="answers instantly">отговаря веднага</div></div>
+					<div class="stat reveal"><div class="num" data-count="100">100</div><div class="lab" data-en="% with you">% при теб</div></div>
+					<div class="stat reveal"><div class="num" data-count="0">0</div><div class="lab" data-en="data sent out">изпратени данни</div></div>
+					<div class="stat reveal"><div class="num">🔒</div><div class="lab" data-en="only your key">само твой ключ</div></div>
 				</div>
 			</div>
 			<div class="terminal reveal" id="demoTerminal">
-				<div class="term-head"><i></i><i></i><i></i><span class="tt">разговор с DODO</span></div>
+				<div class="term-head"><i></i><i></i><i></i><span class="tt" data-en="chat with DODO">разговор с DODO</span></div>
 				<div class="term-body" id="termBody">
-					<div class="line you">колко е часът?</div>
-					<div class="line dodo">14:32, вторник.</div>
-					<div class="line you">какво е времето утре?</div>
-					<div class="line dodo">Утре в София: 27°, слънчево.</div>
-					<div class="line you">кажи ми новините</div>
-					<div class="line dodo">Ето последните 5 заглавия ▸</div>
-					<div class="line you">напомни ми за срещата</div>
-					<div class="line dodo">Записах. Ще ти кажа в 17:00.</div>
-					<div class="line you">заключи бележките ми</div>
-					<div class="line dodo">Готово. Само ти можеш да ги отвориш.</div>
+					<div class="line you" data-en="what time is it?">колко е часът?</div>
+					<div class="line dodo" data-en="14:32, Tuesday.">14:32, вторник.</div>
+					<div class="line you" data-en="what is the weather tomorrow?">какво е времето утре?</div>
+					<div class="line dodo" data-en="Tomorrow in Sofia: 27°, sunny.">Утре в София: 27°, слънчево.</div>
+					<div class="line you" data-en="tell me the news">кажи ми новините</div>
+					<div class="line dodo" data-en="Here are the latest 5 headlines ▸">Ето последните 5 заглавия ▸</div>
+					<div class="line you" data-en="remind me about the meeting">напомни ми за срещата</div>
+					<div class="line dodo" data-en="Noted. I will tell you at 17:00.">Записах. Ще ти кажа в 17:00.</div>
+					<div class="line you" data-en="lock my notes">заключи бележките ми</div>
+					<div class="line dodo" data-en="Done. Only you can open them.">Готово. Само ти можеш да ги отвориш.</div>
 				</div>
 			</div>
 		</div>
@@ -112,14 +115,14 @@
 <section class="section alt" id="how">
 	<div class="wrap">
 		<div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
-			<span class="eyebrow">Съвсем лесно</span>
-			<h2>Как работи</h2>
-			<p>Три стъпки. Без настройки, без сметки, без главоболия.</p>
+			<span class="eyebrow" data-en="Dead simple">Съвсем лесно</span>
+			<h2 data-en="How it works">Как работи</h2>
+			<p data-en="Three steps. No setup, no accounts, no headaches.">Три стъпки. Без настройки, без сметки, без главоболия.</p>
 		</div>
 		<div class="steps">
-			<div class="step reveal"><div class="step-no">1</div><h3>Инсталирай</h3><p>Сваляш DODO и го пускаш. Готов е за минута.</p></div>
-			<div class="step reveal"><div class="step-no">2</div><h3>Кажи или напиши</h3><p>Говориш му или пишеш, както на приятел. Разбира българ­ски.</p></div>
-			<div class="step reveal"><div class="step-no">3</div><h3>DODO върши</h3><p>Отговаря, намира, напомня и върши нещата вместо теб.</p></div>
+			<div class="step reveal"><div class="step-no">1</div><h3 data-en="Install">Инсталирай</h3><p data-en="Download DODO and run it. Ready in a minute.">Сваляш DODO и го пускаш. Готов е за минута.</p></div>
+			<div class="step reveal"><div class="step-no">2</div><h3 data-en="Speak or type">Кажи или напиши</h3><p data-en="Talk or type to it like to a friend. It understands Bulgarian.">Говориш му или пишеш, както на приятел. Разбира българ­ски.</p></div>
+			<div class="step reveal"><div class="step-no">3</div><h3 data-en="DODO does it">DODO върши</h3><p data-en="It answers, finds, reminds and does things for you.">Отговаря, намира, напомня и върши нещата вместо теб.</p></div>
 		</div>
 	</div>
 </section>
@@ -127,42 +130,42 @@
 <section class="section" id="features">
 	<div class="wrap">
 		<div class="section-head reveal">
-			<span class="eyebrow">Какво може</span>
-			<h2>Един помощник за всичко</h2>
-			<p>Всичко на едно място, на прост български, без да си компютърджия.</p>
+			<span class="eyebrow" data-en="What it can do">Какво може</span>
+			<h2 data-en="One helper for everything">Един помощник за всичко</h2>
+			<p data-en="Everything in one place, in plain Bulgarian — no need to be a techie.">Всичко на едно място, на прост български, без да си компютърджия.</p>
 		</div>
 		<div class="grid">
-			<div class="panel feature reveal tilt"><div class="ico">🎙</div><h3>Говори и слуша</h3><p>Казваш му на глас какво искаш — той ти отговаря на глас, на български. Извикаш ли го по име, се обажда.</p></div>
-			<div class="panel feature reveal tilt"><div class="ico">✅</div><h3>Отговаря вярно</h3><p>Питаш го нещо и той намира верния отговор и казва откъде е. Не си измисля.</p></div>
-			<div class="panel feature reveal tilt"><div class="ico">📰</div><h3>Новините накратко</h3><p>Показва ти последните заглавия, за да си в час — без да ровиш из сайтове.</p></div>
-			<div class="panel feature reveal tilt"><div class="ico">⛅</div><h3>Времето</h3><p>Казва ти какво е времето днес и утре за твоя град.</p></div>
-			<div class="panel feature reveal tilt"><div class="ico">🔒</div><h3>Заключено и сигурно</h3><p>Всичко, което пазиш в DODO, е заключено с твой ключ. Само ти можеш да го отвориш.</p></div>
-			<div class="panel feature reveal tilt"><div class="ico">🧠</div><h3>Помни разговора</h3><p>Питаш „а утре?“ и той се сеща, че говорехте за времето. Като разговор с човек.</p></div>
-			<div class="panel feature reveal tilt"><div class="ico">🎛</div><h3>Командва компютъра</h3><p>Казваш какво да направи и той го прави: отваря програми и върши задачи вместо теб.</p></div>
-			<div class="panel feature reveal tilt"><div class="ico">📅</div><h3>Твоят календар</h3><p>Помни срещите ти и ти ги напомня навреме.</p></div>
+			<div class="panel feature reveal tilt"><div class="ico">🎙</div><h3 data-en="Speaks and listens">Говори и слуша</h3><p data-en="Say out loud what you want — it answers out loud, in Bulgarian. Call it by name and it responds.">Казваш му на глас какво искаш — той ти отговаря на глас, на български. Извикаш ли го по име, се обажда.</p></div>
+			<div class="panel feature reveal tilt"><div class="ico">✅</div><h3 data-en="Answers truthfully">Отговаря вярно</h3><p data-en="Ask it something and it finds the right answer and says where it is from. It does not make things up.">Питаш го нещо и той намира верния отговор и казва откъде е. Не си измисля.</p></div>
+			<div class="panel feature reveal tilt"><div class="ico">📰</div><h3 data-en="News in brief">Новините накратко</h3><p data-en="Shows you the latest headlines so you stay in the loop — without digging through sites.">Показва ти последните заглавия, за да си в час — без да ровиш из сайтове.</p></div>
+			<div class="panel feature reveal tilt"><div class="ico">⛅</div><h3 data-en="The weather">Времето</h3><p data-en="Tells you the weather today and tomorrow for your city.">Казва ти какво е времето днес и утре за твоя град.</p></div>
+			<div class="panel feature reveal tilt"><div class="ico">🔒</div><h3 data-en="Locked and safe">Заключено и сигурно</h3><p data-en="Everything you keep in DODO is locked with your key. Only you can open it.">Всичко, което пазиш в DODO, е заключено с твой ключ. Само ти можеш да го отвориш.</p></div>
+			<div class="panel feature reveal tilt"><div class="ico">🧠</div><h3 data-en="Remembers the chat">Помни разговора</h3><p data-en="You ask “and tomorrow?” and it remembers you were talking about the weather. Like a real conversation.">Питаш „а утре?“ и той се сеща, че говорехте за времето. Като разговор с човек.</p></div>
+			<div class="panel feature reveal tilt"><div class="ico">🎛</div><h3 data-en="Controls the computer">Командва компютъра</h3><p data-en="Tell it what to do and it does it: opens apps and handles tasks for you.">Казваш какво да направи и той го прави: отваря програми и върши задачи вместо теб.</p></div>
+			<div class="panel feature reveal tilt"><div class="ico">📅</div><h3 data-en="Your calendar">Твоят календар</h3><p data-en="Remembers your meetings and reminds you in time.">Помни срещите ти и ти ги напомня навреме.</p></div>
 		</div>
-		<p class="pledge reveal" style="margin-top:30px">И още: пуска музика, помага с дребните неща по компютъра — и става по-умен с всяка версия.</p>
+		<p class="pledge reveal" style="margin-top:30px" data-en="And more: it plays music, helps with the little computer chores — and gets smarter with every version.">И още: пуска музика, помага с дребните неща по компютъра — и става по-умен с всяка версия.</p>
 	</div>
 </section>
 
 <section class="section alt" id="privacy">
 	<div class="wrap">
 		<div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
-			<span class="eyebrow">Спокойствие</span>
-			<h2>Всичко остава при теб</h2>
-			<p>DODO работи на твоя компютър и не праща разговорите ти никъде. Пита в интернет само за две неща.</p>
+			<span class="eyebrow" data-en="Peace of mind">Спокойствие</span>
+			<h2 data-en="Everything stays with you">Всичко остава при теб</h2>
+			<p data-en="DODO runs on your computer and never sends your conversations anywhere. It goes online only for two things.">DODO работи на твоя компютър и не праща разговорите ти никъде. Пита в интернет само за две неща.</p>
 		</div>
 		<div class="flow reveal">
-			<span class="flow-node">🎤 Ти говориш</span>
+			<span class="flow-node" data-en="🎤 You speak">🎤 Ти говориш</span>
 			<span class="arr">→<small>при теб</small></span>
-			<span class="flow-node machine">◈ DODO на компютъра</span>
+			<span class="flow-node machine" data-en="◈ DODO on the computer">◈ DODO на компютъра</span>
 			<span class="arr">→<small>отговор</small></span>
-			<span class="flow-node">🔊 Чуваш отговора</span>
+			<span class="flow-node" data-en="🔊 You hear the answer">🔊 Чуваш отговора</span>
 		</div>
 		<div class="flow reveal" style="margin-top:20px">
-			<span class="flow-node out">🌐 В интернет само:</span>
-			<span class="flow-node">⛅ Времето</span>
-			<span class="flow-node">📰 Новините</span>
+			<span class="flow-node out" data-en="🌐 Online only:">🌐 В интернет само:</span>
+			<span class="flow-node" data-en="⛅ Weather">⛅ Времето</span>
+			<span class="flow-node" data-en="📰 News">📰 Новините</span>
 		</div>
 	</div>
 </section>
@@ -172,32 +175,32 @@
 <section class="section" id="download">
 	<div class="wrap">
 		<div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
-			<span class="eyebrow">Изтегляне</span>
-			<h2>Вземи DODO</h2>
-			<p>За Mac и Windows. Сваляш, пускаш и започваш да говориш.</p>
+			<span class="eyebrow" data-en="Download">Изтегляне</span>
+			<h2 data-en="Get DODO">Вземи DODO</h2>
+			<p data-en="For Mac and Windows. Download, run and start talking.">За Mac и Windows. Сваляш, пускаш и започваш да говориш.</p>
 		</div>
 		<div class="download-grid">
-			<div class="panel dl reveal tilt"><div class="os">⌘</div><h3>Mac</h3><div class="ver">версия 1.1.1</div><a class="btn" href="https://github.com/gpsn0w/DODO/releases/download/v1.1.1/DODO-1.1.1-arm64.dmg" data-download="mac">▼ Изтегли за Mac</a><div class="note">Apple Silicon · 801 MB</div></div>
-			<div class="panel dl reveal tilt"><div class="os">⊞</div><h3>Windows</h3><div class="ver">версия 1.1.1</div><a class="btn" href="https://github.com/gpsn0w/DODO/releases/download/v1.1.1/DODO-Setup-1.1.1.exe" data-download="win">▼ Изтегли за Windows</a><div class="note">Windows 10/11 · 64-bit · инсталатор, 957 MB</div></div>
+			<div class="panel dl reveal tilt"><div class="os">⌘</div><h3>Mac</h3><div class="ver">версия 1.1.1</div><a class="btn" href="https://github.com/gpsn0w/DODO/releases/download/v1.1.1/DODO-1.1.1-arm64.dmg" data-download="mac" data-en="▼ Download for Mac">▼ Изтегли за Mac</a><div class="note">Apple Silicon · 801 MB</div></div>
+			<div class="panel dl reveal tilt"><div class="os">⊞</div><h3>Windows</h3><div class="ver">версия 1.1.1</div><a class="btn" href="https://github.com/gpsn0w/DODO/releases/download/v1.1.1/DODO-Setup-1.1.1.exe" data-download="win" data-en="▼ Download for Windows">▼ Изтегли за Windows</a><div class="note" data-en="Windows 10/11 · 64-bit · installer, 957 MB">Windows 10/11 · 64-bit · инсталатор, 957 MB</div></div>
 			<div class="panel dl reveal tilt"><div class="os"><svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.6c-3 0-4.8 2.4-4.8 5.4 0 1.4-.5 2.2-1.2 3.2-1.1 1.6-1.6 3.1-1.6 4.6 0 3.1 3.4 5.6 7.6 5.6s7.6-2.5 7.6-5.6c0-1.5-.5-3-1.6-4.6-.7-1-1.2-1.8-1.2-3.2 0-3-1.8-5.4-4.8-5.4Z"/><path d="M9.4 10.5c0 3 1.2 5 2.6 5s2.6-2 2.6-5"/><circle cx="10.2" cy="7.6" r=".6" fill="currentColor" stroke="none"/><circle cx="13.8" cy="7.6" r=".6" fill="currentColor" stroke="none"/><path d="M11.1 8.9 12 9.9l.9-1"/><path d="M9.2 20.9 7.9 22.6M14.8 20.9l1.3 1.7"/><path d="M7.2 13.4c-1 .5-1.5 1.4-1.4 2.3M16.8 13.4c1 .5 1.5 1.4 1.4 2.3"/></svg></div><h3>Debian / Ubuntu</h3><div class="ver">скоро</div><span class="btn ghost soon">СКОРО</span><div class="note">очаквайте съвсем скоро</div></div>
 			<div class="panel dl reveal tilt"><div class="os"><svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 13c0-3.4 1.2-7 4.5-7s4.5 3.6 4.5 7"/><path d="M2.8 14.2c0-1.1 2.2-2.2 4.7-2.2h9c2.5 0 4.7 1.1 4.7 2.2 0 1.4-4.3 2.4-9.2 2.4s-9.2-1-9.2-2.4z"/></svg></div><h3>Fedora</h3><div class="ver">скоро</div><span class="btn ghost soon">СКОРО</span><div class="note">очаквайте съвсем скоро</div></div>
 		</div>
-		<p class="pledge reveal">🔒 <b>Обещание:</b> DODO не праща твоите данни навън. Всичко живее на твоя компютър.</p>
+		<p class="pledge reveal" data-en="🔒 &lt;b&gt;Promise:&lt;/b&gt; DODO does not send your data out. Everything lives on your computer.">🔒 <b>Обещание:</b> DODO не праща твоите данни навън. Всичко живее на твоя компютър.</p>
 	</div>
 </section>
 
 <section class="section" id="updates">
 	<div class="wrap">
 		<div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
-			<span class="eyebrow">Новото</span>
-			<h2>Какво ново във всяка версия</h2>
-			<p>DODO се обновява сам и става по-добър. Ето какво носи всяка версия.</p>
+			<span class="eyebrow" data-en="What&#39;s new">Новото</span>
+			<h2 data-en="What&#39;s new in each version">Какво ново във всяка версия</h2>
+			<p data-en="DODO updates itself and keeps getting better. Here is what each version brings.">DODO се обновява сам и става по-добър. Ето какво носи всяка версия.</p>
 		</div>
 		<div class="changelog">
 			<div class="release panel reveal">
 				<div class="release-head">
 					<span class="release-ver">1.1.1</span>
-					<span class="release-tag latest">най-нова</span>
+					<span class="release-tag latest" data-en="latest">най-нова</span>
 				</div>
 				<ul class="release-list">
 					<li>🎵 <b>Поправка за GRAB на Windows</b> — обновени компоненти за сваляне от YouTube, включени в инсталатора.</li>
@@ -309,7 +312,7 @@
 			<div class="release panel reveal">
 				<div class="release-head">
 					<span class="release-ver">1.0.0</span>
-					<span class="release-tag">първа версия</span>
+					<span class="release-tag" data-en="first version">първа версия</span>
 				</div>
 				<ul class="release-list">
 					<li>🚀 Първото пускане на DODO — помощник на български, който работи на твоя компютър.</li>
@@ -325,9 +328,9 @@
 <section class="section alt" id="install">
 	<div class="wrap">
 		<div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
-			<span class="eyebrow">Урок</span>
-			<h2>Как да инсталираш DODO</h2>
-			<p>От сваляне до първи разговор — за 3 минути. Избери своята система и следвай стъпките.</p>
+			<span class="eyebrow" data-en="Guide">Урок</span>
+			<h2 data-en="How to install DODO">Как да инсталираш DODO</h2>
+			<p data-en="From download to first chat — in 3 minutes. Pick your system and follow the steps.">От сваляне до първи разговор — за 3 минути. Избери своята система и следвай стъпките.</p>
 		</div>
 
 		<div class="os-tabs reveal" role="tablist" aria-label="Избери система">
@@ -406,11 +409,11 @@
 		</div>
 
 		<div class="panel where-box reveal">
-			<span class="eyebrow">Не го намираш?</span>
-			<h3>Къде е DODO след инсталация</h3>
+			<span class="eyebrow" data-en="Can&#39;t find it?">Не го намираш?</span>
+			<h3 data-en="Where DODO is after install">Къде е DODO след инсталация</h3>
 			<div class="where-grid">
 				<div class="where-col">
-					<div class="wk">⌘ На Mac</div>
+					<div class="wk" data-en="⌘ On Mac">⌘ На Mac</div>
 					<ul>
 						<li><b>Launchpad</b> — иконата с ракетата на дока → пиши „DODO".</li>
 						<li><b>Spotlight</b> — натисни <b>Cmd + интервал</b>, напиши „DODO", Enter.</li>
@@ -418,7 +421,7 @@
 					</ul>
 				</div>
 				<div class="where-col">
-					<div class="wk">⊞ На Windows</div>
+					<div class="wk" data-en="⊞ On Windows">⊞ На Windows</div>
 					<ul>
 						<li>Иконката <b>DODO</b> на <b>десктопа</b>.</li>
 						<li><b>Старт менюто</b> — натисни клавиша Windows и пиши „DODO".</li>
@@ -429,8 +432,8 @@
 		</div>
 
 		<div class="panel setup-box reveal">
-			<span class="eyebrow">Setup менюто</span>
-			<h3>Какво е това и защо се появява?</h3>
+			<span class="eyebrow" data-en="The setup menu">Setup менюто</span>
+			<h3 data-en="What is it and why does it appear?">Какво е това и защо се появява?</h3>
 			<p>При първото пускане DODO те води през кратка настройка — 5 лесни стъпки. Прави се само веднъж и подготвя помощника за теб. Ти само четеш и натискаш „Напред".</p>
 			<ol class="setup-list">
 				<li><span class="sk">Име</span><span class="sv">Как да те нарича DODO — име или прякор.</span></li>
@@ -443,7 +446,7 @@
 		</div>
 
 		<div class="faq reveal">
-			<div class="faq-head"><span class="eyebrow">Въпроси и спънки</span><h3>Ако нещо те обърка</h3></div>
+			<div class="faq-head"><span class="eyebrow" data-en="Questions &amp; snags">Въпроси и спънки</span><h3 data-en="If something confuses you">Ако нещо те обърка</h3></div>
 			<details><summary>Свалих го, но не го намирам никъде</summary><p><b>Mac:</b> отвори Launchpad или натисни Cmd+интервал и напиши „DODO". <b>Windows:</b> виж на десктопа, или натисни клавиша Windows и напиши „DODO". Виж и „Къде е DODO след инсталация" по-горе.</p></details>
 			<details><summary>Пише, че файлът е опасен или „не е проверен"</summary><p>Това е обичайно предупреждение за всяка нова програма, която системата още не познава. DODO е безопасен и работи офлайн. <b>Mac:</b> десен клик върху DODO → „Open" → „Open". <b>Windows:</b> „More info" → „Run anyway".</p></details>
 			<details><summary>Защо файлът е толкова голям (700–900 MB)?</summary><p>Защото DODO носи всичко в себе си — гласа, разпознаването на реч, мозъка — за да работи <b>без интернет</b> и без да праща данните ти навън. Сваля се веднъж.</p></details>
@@ -459,9 +462,9 @@
 <section class="section" id="songs">
 	<div class="wrap">
 		<div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
-			<span class="eyebrow">Музика</span>
-			<h2>Песните на телефона</h2>
-			<p>Свали песни с DODO, прати ги по WiFi с QR кода — ето как да ги пуснеш на iPhone и на Android.</p>
+			<span class="eyebrow" data-en="Music">Музика</span>
+			<h2 data-en="Songs on your phone">Песните на телефона</h2>
+			<p data-en="Download songs with DODO, send them over WiFi with the QR code — here is how to play them on iPhone and Android.">Свали песни с DODO, прати ги по WiFi с QR кода — ето как да ги пуснеш на iPhone и на Android.</p>
 		</div>
 		<div class="songs-grid">
 			<div class="panel songs-card reveal">
@@ -496,9 +499,9 @@
 <section class="section" id="report">
 	<div class="wrap">
 		<div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
-			<span class="eyebrow">Обратна връзка</span>
-			<h2>Съобщи проблем или идея</h2>
-			<p>Нещо не работи или имаш идея? Пиши тук — стига директно до нас. Без акаунт, без регистрация.</p>
+			<span class="eyebrow" data-en="Feedback">Обратна връзка</span>
+			<h2 data-en="Report a problem or idea">Съобщи проблем или идея</h2>
+			<p data-en="Something not working or have an idea? Write here — it reaches us directly. No account, no signup.">Нещо не работи или имаш идея? Пиши тук — стига директно до нас. Без акаунт, без регистрация.</p>
 		</div>
 		<form class="panel report-form reveal" id="reportForm" novalidate>
 			<div class="rf-types" role="radiogroup" aria-label="Вид">
@@ -508,7 +511,7 @@
 			</div>
 			<div class="rf-grid">
 				<label class="rf-field">
-					<span class="rf-lab">Система</span>
+					<span class="rf-lab" data-en="System">Система</span>
 					<select name="Система"><option>Mac</option><option>Windows</option><option>Друго</option></select>
 				</label>
 				<label class="rf-field">
@@ -517,7 +520,7 @@
 				</label>
 			</div>
 			<label class="rf-field">
-				<span class="rf-lab">Какво стана / какво предлагаш</span>
+				<span class="rf-lab" data-en="What happened / what you suggest">Какво стана / какво предлагаш</span>
 				<textarea name="Съобщение" rows="5" required placeholder="Опиши какво се случи, стъпка по стъпка. Колкото повече, толкова по-лесно го оправяме."></textarea>
 			</label>
 			<label class="rf-field">
@@ -529,7 +532,7 @@
 			<input type="hidden" name="_captcha" value="false">
 			<input type="hidden" name="_template" value="table">
 			<div class="rf-foot">
-				<button type="submit" class="btn" id="reportSend">▸ Изпрати</button>
+				<button type="submit" class="btn" id="reportSend" data-en="▸ Send">▸ Изпрати</button>
 				<span class="rf-status" id="reportStatus" aria-live="polite"></span>
 			</div>
 		</form>
@@ -538,17 +541,17 @@
 
 <section class="section alt" id="about">
 	<div class="wrap">
-		<div class="section-head reveal"><span class="eyebrow">За проекта</span><h2>Кой стои зад DODO</h2></div>
+		<div class="section-head reveal"><span class="eyebrow" data-en="About">За проекта</span><h2 data-en="Who is behind DODO">Кой стои зад DODO</h2></div>
 		<div class="about-grid">
 			<div class="reveal">
-				<p>DODO е личен помощник, направен с една проста идея: помощникът трябва да е бърз, да разбира българ­ски и да остава при теб — а не в чужд облак.</p>
-				<p>Затова всичко важно работи на твоя компютър. Каквото кажеш на DODO, си остава при теб, заключено с твой ключ.</p>
-				<p>Проектът се развива непрекъснато и става по-добър с всяка версия.</p>
+				<p data-en="DODO is a personal helper built on one simple idea: a helper should be fast, understand Bulgarian and stay with you — not in someone else's cloud.">DODO е личен помощник, направен с една проста идея: помощникът трябва да е бърз, да разбира българ­ски и да остава при теб — а не в чужд облак.</p>
+				<p data-en="That is why everything important runs on your computer. Whatever you tell DODO stays with you, locked with your key.">Затова всичко важно работи на твоя компютър. Каквото кажеш на DODO, си остава при теб, заключено с твой ключ.</p>
+				<p data-en="The project keeps evolving and gets better with every version.">Проектът се развива непрекъснато и става по-добър с всяка версия.</p>
 			</div>
 			<div class="panel reveal">
 				<ul class="contact-list">
-					<li><span class="k">Екип</span><span class="v">Габриел Жечев · Емил Жечев</span></li>
-					<li><span class="k">Пиши ни</span><span class="v"><a href="mailto:gzhechevpro@gmail.com">gzhechevpro@gmail.com</a></span></li>
+					<li><span class="k" data-en="Team">Екип</span><span class="v">Габриел Жечев · Емил Жечев</span></li>
+					<li><span class="k" data-en="Contact">Пиши ни</span><span class="v"><a href="mailto:gzhechevpro@gmail.com">gzhechevpro@gmail.com</a></span></li>
 				</ul>
 			</div>
 		</div>
@@ -560,13 +563,13 @@
 <footer class="site-footer">
 	<div class="wrap">
 		<div class="fbrand"><img src="logo.png" alt=""><span>DODO</span></div>
-		<small>© 2026 · Всичко става на твоята машина.</small>
-		<small class="foot-en">🇬🇧 English version coming soon.</small>
+		<small data-en="© 2026 · Everything happens on your machine.">© 2026 · Всичко става на твоята машина.</small>
+		
 	</div>
 </footer>
 
 <script src="three.min.js"></script>
 <script src="hero-core.js?v=2"></script>
-<script src="site.js?v=3"></script>
+<script src="site.js?v=4"></script>
 </body>
 </html>

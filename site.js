@@ -363,3 +363,32 @@
 		btn.addEventListener("pointerleave", function () { btn.style.transform = ""; });
 	});
 })();
+
+/* ============ Език BG|EN с глич при смяна ============
+   Всеки текст за превод носи data-en="English". Оригиналният български се
+   пази при първо зареждане. При смяна страницата глитчва за половин секунда. */
+(function langToggle(){
+  var btn = document.getElementById("langToggle");
+  if (!btn) return;
+  var nodes = document.querySelectorAll("[data-en]");
+  nodes.forEach(function(n){ n.setAttribute("data-bg", n.innerHTML); });
+  var isEN = false;
+  try { isEN = localStorage.getItem("dodo-lang") === "en"; } catch(e){}
+  function apply(en, glitch){
+    if (glitch){
+      document.body.classList.add("lang-glitching");
+      setTimeout(function(){ document.body.classList.remove("lang-glitching"); }, 580);
+    }
+    nodes.forEach(function(n){
+      var v = en ? n.getAttribute("data-en") : n.getAttribute("data-bg");
+      if (v != null) n.innerHTML = v;
+    });
+    btn.querySelector(".lang-bg").classList.toggle("on", !en);
+    btn.querySelector(".lang-en").classList.toggle("on", en);
+    document.documentElement.setAttribute("lang", en ? "en" : "bg");
+    isEN = en;
+    try { localStorage.setItem("dodo-lang", en ? "en" : "bg"); } catch(e){}
+  }
+  btn.addEventListener("click", function(){ apply(!isEN, true); });
+  if (isEN) apply(true, false);
+})();
