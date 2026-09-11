@@ -28,6 +28,78 @@
 
 <link rel="icon" href="logo.png" type="image/png">
 <link rel="stylesheet" href="style.css?v=12">
+
+<!-- Структурирани данни (schema.org): казват на търсачките, че Габриел Жечев
+     и Емил Жечев са СЪЗДАТЕЛИТЕ на DODO Assistant — за да излизат така при
+     търсене на имената им. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://gpsn0w.github.io/DODO/#gabriel-zhechev",
+      "name": "Габриел Жечев",
+      "alternateName": ["Gabriel Zhechev", "Gabi Zhechev", "Габи Жечев"],
+      "jobTitle": "Създател на DODO Assistant",
+      "description": "Създател на DODO Assistant — личен офлайн помощник за Windows, Mac и Linux.",
+      "url": "https://gpsn0w.github.io/DODO/",
+      "sameAs": ["https://github.com/gpsn0w"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://gpsn0w.github.io/DODO/#emil-zhechev",
+      "name": "Емил Жечев",
+      "alternateName": ["Emil Zhechev"],
+      "jobTitle": "Създател на DODO Assistant",
+      "description": "Създател на DODO Assistant — личен офлайн помощник за Windows, Mac и Linux.",
+      "url": "https://gpsn0w.github.io/DODO/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://gpsn0w.github.io/DODO/#dodo",
+      "name": "DODO",
+      "url": "https://gpsn0w.github.io/DODO/",
+      "logo": "https://gpsn0w.github.io/DODO/logo.png",
+      "founder": [
+        { "@id": "https://gpsn0w.github.io/DODO/#gabriel-zhechev" },
+        { "@id": "https://gpsn0w.github.io/DODO/#emil-zhechev" }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://gpsn0w.github.io/DODO/#website",
+      "url": "https://gpsn0w.github.io/DODO/",
+      "name": "DODO Assistant",
+      "inLanguage": "bg",
+      "publisher": { "@id": "https://gpsn0w.github.io/DODO/#dodo" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://gpsn0w.github.io/DODO/#app",
+      "name": "DODO Assistant",
+      "alternateName": "DODO",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux",
+      "softwareVersion": "1.1.2",
+      "url": "https://gpsn0w.github.io/DODO/",
+      "image": "https://gpsn0w.github.io/DODO/logo.png",
+      "description": "Личен офлайн помощник за Windows, Mac и Linux. Говориш му на български, той върши; всичко остава на твоя компютър.",
+      "inLanguage": "bg",
+      "author": [
+        { "@id": "https://gpsn0w.github.io/DODO/#gabriel-zhechev" },
+        { "@id": "https://gpsn0w.github.io/DODO/#emil-zhechev" }
+      ],
+      "creator": [
+        { "@id": "https://gpsn0w.github.io/DODO/#gabriel-zhechev" },
+        { "@id": "https://gpsn0w.github.io/DODO/#emil-zhechev" }
+      ],
+      "publisher": { "@id": "https://gpsn0w.github.io/DODO/#dodo" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  ]
+}
+</script>
 </head>
 <body class="home">
 
@@ -437,10 +509,11 @@
 				<p data-en="DODO is a personal helper built on one simple idea: a helper should be fast, understand Bulgarian and stay with you — not in someone else's cloud.">DODO е личен помощник, направен с една проста идея: помощникът трябва да е бърз, да разбира българ­ски и да остава при теб — а не в чужд облак.</p>
 				<p data-en="That is why everything important runs on your computer. Whatever you tell DODO stays with you, locked with your key.">Затова всичко важно работи на твоя компютър. Каквото кажеш на DODO, си остава при теб, заключено с твой ключ.</p>
 				<p data-en="The project keeps evolving and gets better with every version.">Проектът се развива непрекъснато и става по-добър с всяка версия.</p>
+				<p data-en="DODO Assistant is created by &lt;b&gt;Gabriel Zhechev&lt;/b&gt; and &lt;b&gt;Emil Zhechev&lt;/b&gt;."><b>DODO Assistant</b> е създаден от <b>Габриел Жечев</b> и <b>Емил Жечев</b>.</p>
 			</div>
 			<div class="panel reveal">
 				<ul class="contact-list">
-					<li><span class="k" data-en="Team">Екип</span><span class="v">Габриел Жечев · Емил Жечев</span></li>
+					<li><span class="k" data-en="Creators">Създатели</span><span class="v">Габриел Жечев · Емил Жечев</span></li>
 					<li><span class="k" data-en="Contact">Пиши ни</span><span class="v"><a href="mailto:gzhechevpro@gmail.com">gzhechevpro@gmail.com</a></span></li>
 				</ul>
 			</div>
