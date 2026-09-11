@@ -389,7 +389,7 @@
   function apply(en, glitch){
     if (glitch){
       document.body.classList.add("lang-glitching");
-      setTimeout(function(){ document.body.classList.remove("lang-glitching"); }, 850);
+      setTimeout(function(){ document.body.classList.remove("lang-glitching"); }, 1050);
     }
     nodes.forEach(function(n){
       var v = en ? n.getAttribute("data-en") : n.getAttribute("data-bg");
