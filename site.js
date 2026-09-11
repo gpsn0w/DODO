@@ -98,12 +98,19 @@
 	var term = document.getElementById("termBody");
 	if (term && !reduce) {
 		var lines = Array.prototype.map.call(term.querySelectorAll(".line"), function (el) {
-			return { cls: el.className, text: el.textContent };
+			return { cls: el.className, bg: el.textContent, en: el.getAttribute("data-en") || el.textContent };
 		});
+		var termLang = "bg";
+		try { termLang = localStorage.getItem("dodo-lang") === "en" ? "en" : "bg"; } catch (e) {}
+		var termTimers = [];
+		function clearTermTimers(){ termTimers.forEach(clearTimeout); termTimers = []; }
+		// Пре-изписва терминала на избрания език (вика се и при смяна BG|EN).
+		window.__dodoRetypeTerminal = function (en) { termLang = en ? "en" : "bg"; started = false; clearTermTimers(); startType(); };
 		var started = false;
 		var startType = function () {
 			if (started || !lines.length) return;
 			started = true;
+			clearTermTimers();
 			term.innerHTML = "";
 			var li = 0;
 			function typeLine() {
@@ -114,15 +121,15 @@
 				term.appendChild(el);
 				var cursor = document.createElement("span");
 				cursor.className = "term-cursor";
-				var ci = 0, txt = data.text;
+				var ci = 0, txt = (termLang === "en" ? data.en : data.bg);
 				(function typeChar() {
 					el.textContent = txt.slice(0, ci);
 					el.appendChild(cursor);
-					if (ci < txt.length) { ci++; setTimeout(typeChar, 24 + Math.random() * 42); }
+					if (ci < txt.length) { ci++; termTimers.push(setTimeout(typeChar, 24 + Math.random() * 42)); }
 					else {
 						if (cursor.parentNode) { cursor.parentNode.removeChild(cursor); }
 						li++;
-						setTimeout(typeLine, data.cls.indexOf("you") !== -1 ? 320 : 640);
+						termTimers.push(setTimeout(typeLine, data.cls.indexOf("you") !== -1 ? 320 : 640));
 					}
 				})();
 			}
@@ -382,7 +389,7 @@
   function apply(en, glitch){
     if (glitch){
       document.body.classList.add("lang-glitching");
-      setTimeout(function(){ document.body.classList.remove("lang-glitching"); }, 580);
+      setTimeout(function(){ document.body.classList.remove("lang-glitching"); }, 950);
     }
     nodes.forEach(function(n){
       var v = en ? n.getAttribute("data-en") : n.getAttribute("data-bg");
@@ -393,6 +400,7 @@
     document.documentElement.setAttribute("lang", en ? "en" : "bg");
     document.title = en ? titleEN : titleBG;
     if (descEl) descEl.setAttribute("content", en ? descEN : descBG);
+    if (typeof window.__dodoRetypeTerminal === "function") window.__dodoRetypeTerminal(en);
     isEN = en;
     try { localStorage.setItem("dodo-lang", en ? "en" : "bg"); } catch(e){}
   }
