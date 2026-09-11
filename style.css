@@ -89,16 +89,20 @@ body {
     opacity: 0.55;
 }
 
-/* Малък етикет „beta" на функция, която още не е напълно готова. */
+/* Малък етикет „beta" на функция, която още не е напълно готова —
+   стои в горния десен ъгъл на картата, като етикет на прозорец. */
+.panel.feature { position: relative; }
 .beta-tag {
-    display: inline-block;
-    margin-left: 8px;
-    padding: 2px 8px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    margin-left: 0;
+    padding: 2px 9px;
     font-size: 10px;
     font-family: 'Share Tech Mono', monospace;
     letter-spacing: 1px;
     text-transform: uppercase;
-    vertical-align: middle;
+    line-height: 1.4;
     color: var(--mint, #6ee7b7);
     border: 1px solid rgba(var(--rgb-green), 0.5);
     border-radius: 999px;
