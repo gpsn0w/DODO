@@ -166,6 +166,7 @@
 
     /* --------------------------- АНИМАЦИЯ В ПОКОЙ --------------------------- */
     let heartbeat = 0, pulse = 0, pulseStrength = 0.08, shockCycle = 0, rafId = null;
+    let last = performance.now();   // за анимация спрямо реалното време (не спрямо кадрите)
 
     // Сферата леко се навежда към мишката (само с истинска мишка).
     let targetRX = 0, targetRY = 0;
@@ -183,9 +184,17 @@
         // за да не могат два цикъла да текат наведнъж (оттам „ускоряването").
         rafId = requestAnimationFrame(frame);
 
-        heartbeat += 0.04;
-        pulseStrength += (0.08 - pulseStrength) * 0.05;
-        pulse += 0.015;
+        // Колко „60fps-кадъра" са минали от миналия път. Така скоростта е
+        // еднаква на 60Hz и на 120Hz, а спиране/пускане при скрол не подскача.
+        const now = performance.now();
+        let dt = (now - last) / 16.667;
+        last = now;
+        if (dt > 3) dt = 3;          // след пауза/скрол — без голям скок
+        if (!(dt > 0)) dt = 1;
+
+        heartbeat += 0.04 * dt;
+        pulseStrength += (0.08 - pulseStrength) * 0.05 * dt;
+        pulse += 0.015 * dt;
 
         const pos = geometry.attributes.position.array;
         for (let i = 0; i < particleCount; i++) {
@@ -198,14 +207,14 @@
         }
         geometry.attributes.position.needsUpdate = true;
 
-        particles.rotation.y += 0.001;
-        particles.rotation.x += 0.0004;
-        wireGlobe.rotation.y -= 0.0006;
-        wireGlobe.rotation.x += 0.00025;
+        particles.rotation.y += 0.001 * dt;
+        particles.rotation.x += 0.0004 * dt;
+        wireGlobe.rotation.y -= 0.0006 * dt;
+        wireGlobe.rotation.x += 0.00025 * dt;
 
-        ring1.rotation.z += 0.002;
-        ring2.rotation.z -= 0.003;
-        ring3.rotation.z += 0.0015;
+        ring1.rotation.z += 0.002 * dt;
+        ring2.rotation.z -= 0.003 * dt;
+        ring3.rotation.z += 0.0015 * dt;
 
         const coreScale = 1 + Math.sin(heartbeat) * 0.08;
         core.scale.setScalar(coreScale);
@@ -233,15 +242,15 @@
         }
         sparkGeo.attributes.position.needsUpdate = true;
 
-        shockCycle += 0.016;
+        shockCycle += 0.016 * dt;
         const st = (shockCycle % 2.4) / 2.4;
         shockwave.scale.setScalar(0.3 + st * 3.2);
         shockwave.material.opacity = (1 - st) * 0.35;
 
-        if (Math.random() < 0.015) spawnBolt();
+        if (Math.random() < 0.015 * dt) spawnBolt();
         for (let i = activeBolts.length - 1; i >= 0; i--) {
             const b = activeBolts[i];
-            b.userData.life -= 0.07;
+            b.userData.life -= 0.07 * dt;
             b.material.opacity = Math.max(0, b.userData.life) * 0.9;
             if (b.userData.life <= 0) {
                 coreGroup.remove(b);
@@ -256,15 +265,15 @@
         camera.lookAt(0, 0, 0);
 
         // Плавно навеждане на цялата сфера към мишката.
-        coreGroup.rotation.y += (targetRY - coreGroup.rotation.y) * 0.04;
-        coreGroup.rotation.x += (targetRX - coreGroup.rotation.x) * 0.04;
+        coreGroup.rotation.y += (targetRY - coreGroup.rotation.y) * 0.04 * dt;
+        coreGroup.rotation.x += (targetRX - coreGroup.rotation.x) * 0.04 * dt;
 
         renderer.render(scene, camera);
     }
 
     window.dodoHeroCore = {
         // Стартира само ако вече не върви цикъл; спира и зачиства кадъра.
-        wake() { if (rafId === null) { frame(); } },
+        wake() { if (rafId === null) { last = performance.now(); frame(); } },
         sleep() { if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; } }
     };
     document.addEventListener("visibilitychange", () => {
