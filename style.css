@@ -245,7 +245,9 @@ h1, h2, h3, h4 {
     white-space: nowrap;
     align-self: center;
 }
-@media (max-width: 560px) { .brand-beta { display: none; } }
+@media (max-width: 560px) {
+    .brand-beta { font-size: 8px; padding: 2px 6px; letter-spacing: .5px; }
+}
 
 .nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 .nav a {
