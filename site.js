@@ -382,10 +382,10 @@
   var isEN = false;
   try { isEN = localStorage.getItem("dodo-lang") === "en"; } catch(e){}
   var titleBG = document.title;
-  var titleEN = "DODO Assistant — your personal computer helper | Gabriel Zhechev, Emil Zhechev";
+  var titleEN = "DODO Assistant — your personal computer helper | Gabriel Zhechev";
   var descEl = document.querySelector('meta[name="description"]');
   var descBG = descEl ? descEl.getAttribute("content") : "";
-  var descEN = "DODO is a personal helper for Windows, Mac and Linux, built by Gabriel Zhechev and Emil Zhechev. You speak to it in Bulgarian (voice control is in beta) — it does the work. Everything stays with you, no cloud.";
+  var descEN = "DODO is a personal helper for Windows, Mac and Linux, built by Gabriel Zhechev. You speak to it in Bulgarian (voice control is in beta) — it does the work. Everything stays with you, no cloud.";
   function apply(en, glitch){
     if (glitch){
       document.body.classList.add("lang-glitching");
