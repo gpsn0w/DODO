@@ -95,7 +95,10 @@
 		ST = { kind: "os", pick: pick, bg: labelBG, en: labelEN };
 		var f = FILES[pick];
 		g("sdIco").textContent = f.ico;
-		g("sdSpecs").textContent = lineOf([L(labelBG, labelEN), coresStr(), memStr()]);
+		/* Показваме само това, което е ТОЧНО (OS + чип). Браузърите крият точния
+		   RAM (таван 8GB) и ядрата (анти-fingerprinting), затова не ги пишем като
+		   факт — оценката по-долу казва какво ще е преживяването. */
+		g("sdSpecs").textContent = L(labelBG, labelEN);
 		var vd = verdict(); var ve = g("sdVerdict"); if (ve) { ve.textContent = vd.txt; ve.className = "sd-verdict " + vd.cls; }
 		var b = g("sdBtn"); b.style.display = ""; b.href = f.href; b.textContent = L(f.bg, f.en); b.setAttribute("download", "");
 		var a = document.querySelector('[data-download="' + f.key + '"]');
