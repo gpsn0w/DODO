@@ -254,7 +254,17 @@
 		<div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
 			<span class="eyebrow" data-en="Download">Изтегляне</span>
 			<h2 data-en="Get DODO">Вземи DODO</h2>
-			<p data-en="For Mac and Windows. Download, run and start talking.">За Mac и Windows. Сваляш, пускаш и започваш да говориш.</p>
+			<p data-en="For Mac, Windows and Linux. Download, run and start talking.">За Mac, Windows и Linux. Сваляш, пускаш и започваш да говориш.</p>
+		</div>
+		<div id="smartDownload" class="smart-dl reveal" hidden>
+			<div class="sd-ico" id="sdIco" aria-hidden="true">⌘</div>
+			<div class="sd-info">
+				<div class="sd-k" data-en="We detected your computer">Открихме твоя компютър</div>
+				<div class="sd-specs" id="sdSpecs"></div>
+				<div class="sd-verdict" id="sdVerdict"></div>
+			</div>
+			<a class="btn sd-btn" id="sdBtn" href="#download" data-download="auto">▼ Изтегли за теб</a>
+			<div class="sd-alt" id="sdAlt" data-en="Or pick manually below ↓">Или избери ръчно отдолу ↓</div>
 		</div>
 		<div class="download-grid">
 			<div class="panel dl reveal"><div class="os">⌘</div><h3>Mac</h3><div class="ver">версия 1.1.7</div><a class="btn" href="https://github.com/gpsn0w/DODO/releases/download/v1.1.7/DODO-1.1.7-arm64.dmg" data-download="mac" data-en="▼ Download for Mac">▼ Изтегли за Mac</a><div class="note">Apple Silicon · 769 MB</div></div>
@@ -611,5 +621,6 @@
 <script src="hero-core.js?v=4"></script>
 <script src="bg-field.js?v=4"></script>
 <script src="site.js?v=10"></script>
+<script src="smart-download.js?v=1"></script>
 </body>
 </html>
