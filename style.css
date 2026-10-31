@@ -1121,17 +1121,9 @@ body.lang-glitching::before {
 
 /* ===================== RICH EFFECTS (v17) ===================== */
 /* Декоративни анимации — изключват се при „по-малко движение". */
+/* Заглавието и ядрото си имат вградени анимации (titleGlow / float) —
+   НЕ ги пипаме тук, за да не изчезне логото. */
 @media (prefers-reduced-motion: no-preference){
-  .hero h1{ animation: dodoGlow 5s ease-in-out infinite; }
-  @keyframes dodoGlow{
-    0%,100%{ text-shadow: 0 0 16px rgba(var(--rgb-green),.22); }
-    50%    { text-shadow: 0 0 34px rgba(var(--rgb-green),.5); }
-  }
-  .hero-core-holder{ animation: coreBreath 6s ease-in-out infinite; }
-  @keyframes coreBreath{
-    0%,100%{ filter: drop-shadow(0 0 20px rgba(var(--rgb-green),.22)); }
-    50%    { filter: drop-shadow(0 0 40px rgba(var(--rgb-green),.42)); }
-  }
   .feature .ico{ transition: transform .2s, text-shadow .2s; }
   .feature:hover .ico{ transform: translateY(-2px) scale(1.12);
     text-shadow: 0 0 18px rgba(var(--rgb-green),.6); }
