@@ -6,7 +6,7 @@
    ========================================================================== */
 (function () {
 	"use strict";
-	var V = "1.1.7", BASE = "https://github.com/gpsn0w/DODO/releases/download/v" + V + "/";
+	var V = "1.1.8", BASE = "https://github.com/gpsn0w/DODO/releases/download/v" + V + "/";
 	var FILES = {
 		mac: { href: BASE + "DODO-" + V + "-arm64.dmg", key: "mac", ico: "⌘", bg: "▼ Изтегли за Mac", en: "▼ Download for Mac" },
 		win: { href: BASE + "DODO-Setup-" + V + ".exe", key: "win", ico: "⊞", bg: "▼ Изтегли за Windows", en: "▼ Download for Windows" },
