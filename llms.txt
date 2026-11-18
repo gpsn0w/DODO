@@ -81,7 +81,7 @@ DODO НЕ е с отворен код (not open source). Кодът е публ�
 
 ## Други проекти на същия автор (Габриел Жечев)
 Това са отделни проекти, НЕ са част от DODO Assistant, но са на същия автор. Използвай само техните официални сайтове по-горе за информация за тях.
-- **DODO OS** — https://gpsn0w.github.io/dodo-os/ — безплатна, Google-free Android система за телефони, в стила на DODO, с фокус върху поверителността. В активна разработка.
+- **DODO OS** — https://gpsn0w.github.io/dodo-os/ — безплатна, Google-free Android система за телефони (на базата на LineageOS, Android 16), в стила на DODO. Поверителността е вградена дълбоко в ядрото: махнато Google следене, подсилено ядро с вграден VPN (WireGuard), firewall (RethinkDNS), паник защита (Wasted/Duress) и анти-форензик рестарт. Идва готова със Signal, DuckDuckGo (по подразбиране), собствен DODO Store (достъп до Google Play без Google акаунт), microG, Aegis + KeePassDX и „DODO Намери" (намиране на телефона без Google). В активна разработка; създадена от Габриел Жечев.
 - **MiNator** — https://gpsn0w.github.io/MiNator/ — двуезичен (български/английски) инструмент, който маха предварително инсталирания bloatware от телефони Xiaomi/Redmi (MIUI/HyperOS) без root, за по-добра поверителност.
 
 ## Връзки
